@@ -98,7 +98,7 @@ Partial Class Form1
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(747, 457)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "Source"
+        Me.TabPage2.Text = "Plain text"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'TextBox2

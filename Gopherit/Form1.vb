@@ -16,14 +16,10 @@ Public Class Form1
         Return Nothing
     End Function
 
-    Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
-        If Not ComboBox1.Text.Contains("://") Then
-            ComboBox1.Text = "gopher://" & ComboBox1.Text
-        End If
-        Dim url = ComboBox1.Text
-
+    Private Function CurlFetch(url As String)
         Dim oProcess As New Process()
-        Dim oStartInfo As New ProcessStartInfo(curl, ComboBox1.Text)
+        Dim oStartInfo As New ProcessStartInfo(curl, url)
+        oStartInfo.CreateNoWindow = True
         oStartInfo.WindowStyle = ProcessWindowStyle.Hidden
         oStartInfo.UseShellExecute = False
         oStartInfo.RedirectStandardOutput = True
@@ -34,7 +30,19 @@ Public Class Form1
         Using oStreamReader As System.IO.StreamReader = oProcess.StandardOutput
             sOutput = oStreamReader.ReadToEnd()
         End Using
-        TextBox2.Text = sOutput
+        Return sOutput
+    End Function
+
+    Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.UseWaitCursor = True
+        Label1.Visible = True
+        Me.Refresh()
+
+        If Not ComboBox1.Text.Contains("://") Then
+            ComboBox1.Text = "gopher://" & ComboBox1.Text
+        End If
+        Dim url = ComboBox1.Text
+        TextBox2.Text = CurlFetch(url)
 
         Dim strReader As New IO.StringReader(TextBox2.Text)
         Dim CurrentLine = strReader.ReadLine
@@ -101,7 +109,7 @@ Public Class Form1
 
         WebBrowser1.DocumentText = html
 
-        Dim cbtemp = ComboBox1.Text
+        Dim cbtemp = url
         If ComboBox1.Items.Contains(cbtemp) Then
             ComboBox1.Items.Remove(cbtemp)
         End If
@@ -112,6 +120,9 @@ Public Class Form1
         Else
             Button6.Enabled = False
         End If
+
+        Me.UseWaitCursor = False
+        Label1.Visible = False
 
     End Sub
 
@@ -171,9 +182,16 @@ Public Class Form1
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 2
+        Go(sender, e)
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Settings.ShowDialog()
+    End Sub
+
+    Private Sub ComboBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Go(sender, e)
+        End If
     End Sub
 End Class

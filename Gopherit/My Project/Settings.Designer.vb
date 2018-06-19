@@ -53,6 +53,31 @@ Namespace My
                 Return defaultInstance
             End Get
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property Stylesheet() As String
+            Get
+                Return CType(Me("Stylesheet"),String)
+            End Get
+            Set
+                Me("Stylesheet") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("body{background-color:white;color:black}pre{font-family:monospace}.i{color:green}"& _ 
+            ".h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}")>  _
+        Public Property StyleDefault() As String
+            Get
+                Return CType(Me("StyleDefault"),String)
+            End Get
+            Set
+                Me("StyleDefault") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

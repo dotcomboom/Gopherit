@@ -20,6 +20,7 @@ Public Class Form1
         If Not ComboBox1.Text.Contains("://") Then
             ComboBox1.Text = "gopher://" & ComboBox1.Text
         End If
+        Dim url = ComboBox1.Text
 
         Dim oProcess As New Process()
         Dim oStartInfo As New ProcessStartInfo(curl, ComboBox1.Text)
@@ -38,7 +39,7 @@ Public Class Form1
         Dim strReader As New IO.StringReader(TextBox2.Text)
         Dim CurrentLine = strReader.ReadLine
 
-        Dim html = "<html><head><style>.i{color:green}.h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}</style></head><body>"
+        Dim html = "<html><head><style>" & My.Settings.Stylesheet & "</style></head><body>"
 
         Do While (Not CurrentLine Is Nothing)
 
@@ -53,8 +54,36 @@ Public Class Form1
                     html = html & "<pre class='h' title='HTML Document'><a target='_blank' href='" & CLArray(1).Replace("URL:", "") & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("0") Then
                     '0Caltrans California highway conditions	/calroads	gopher.floodgap.com	70
+                    Dim text = CLArray(0).Substring(1)
+                    Dim path = CLArray(1)
+                    Dim server = CLArray(2)
+                    Dim port = CLArray(3)
+                    If Not path.StartsWith("/") Then
+                        path = url.Replace("gopher://", "").Split("/").Skip(1).ToString
+                        'MsgBox(path)
+                    End If
+                    If server Is Nothing Then
+                        server = url.Replace("gopher://", "").Split("/")(0)
+                    End If
+                    If port Is Nothing Then
+                        port = 70
+                    End If
                     html = html & "<pre class='0' title='Text File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&txt=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("1") Then
+                    Dim text = CLArray(0).Substring(1)
+                    Dim path = CLArray(1)
+                    Dim server = CLArray(2)
+                    Dim port = CLArray(3)
+                    If Not path.StartsWith("/") Then
+                        path = url.Replace("gopher://", "").Split("/").Skip(1).ToString
+                        'MsgBox(path)
+                    End If
+                    If server Is Nothing Then
+                        server = url.Replace("gopher://", "").Split("/")(0)
+                    End If
+                    If port Is Nothing Then
+                        port = 70
+                    End If
                     html = html & "<pre class='1' title='Directory'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("7") Then
                     html = html & "<pre class='7' title='Search'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
@@ -87,6 +116,10 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        If My.Settings.Stylesheet = "" Then
+            My.Settings.Stylesheet = My.Settings.StyleDefault
+        End If
 
         Try
             curl = FindCurl()
@@ -138,5 +171,9 @@ Public Class Form1
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 2
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        Settings.ShowDialog()
     End Sub
 End Class

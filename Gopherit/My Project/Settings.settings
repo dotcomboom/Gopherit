@@ -8,5 +8,12 @@
     <Setting Name="StyleDefault" Type="System.String" Scope="User">
       <Value Profile="(Default)">body{background-color:white;color:black}pre{font-family:monospace}.i{color:green}.h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}.3 a{color:red}.5 a{color:brown}.9 a{color:brown}.g a{color:brown}.Im a{color:brown}</Value>
     </Setting>
+    <Setting Name="Bookmarks" Type="System.Collections.Specialized.StringCollection" Scope="User">
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;string&gt;gopher.floodgap.com&lt;/string&gt;
+  &lt;string&gt;gopherproject.org&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

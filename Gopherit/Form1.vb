@@ -1,8 +1,30 @@
-﻿Imports System.IO
+﻿Imports System.ComponentModel
+Imports System.IO
 
 Public Class Form1
     Public curl = "curl.exe"
-
+    Private Function SaveBookmarks()
+        My.Settings.Bookmarks.Clear()
+        Try
+            For Each item In ListView1.Items
+                My.Settings.Bookmarks.Add(item.text)
+            Next
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
+    Private Function LoadBookmarks()
+        Try
+            For Each item In My.Settings.Bookmarks
+                ListView1.Items.Add(item)
+                Refresh()
+            Next
+        Catch ex As Exception
+            Return False
+        End Try
+        Return True
+    End Function
     Private Function CurlFetch(url As String)
         Dim oProcess As New Process()
         Dim oStartInfo As New ProcessStartInfo(curl, url)
@@ -32,7 +54,8 @@ Public Class Form1
 
     Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
         Me.UseWaitCursor = True
-        Label1.Visible = True
+        Label1.Text = "Working"
+        Label1.ForeColor = Color.Yellow
         Me.Refresh()
 
         If Not ComboBox1.Text.Contains("://") Then
@@ -128,12 +151,12 @@ Public Class Form1
         End If
 
         Me.UseWaitCursor = False
-        Label1.Visible = False
+        Label1.Text = "Ready"
+        Label1.ForeColor = Color.Green
 
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         If My.Settings.Stylesheet = "" Then
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If
@@ -143,15 +166,17 @@ Public Class Form1
             Application.Exit()
         End If
 
+        LoadBookmarks()
+
         WebBrowser1.Navigate("about:blank")
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
         ComboBox1.Text = "gopher://gopherproject.org"
         Go(sender, e)
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs)
         ComboBox1.Text = "gopher://gopher.floodgap.com"
         Go(sender, e)
     End Sub
@@ -197,5 +222,45 @@ Public Class Form1
         If e.KeyCode = Keys.Enter Then
             Go(sender, e)
         End If
+    End Sub
+
+    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
+        If ListView1.SelectedItems.Count = 1 Then
+            RemoveBookmarkToolStripMenuItem.Enabled = True
+            RemoveBookmarkToolStripMenuItem.Text = "Remove bookmark"
+        End If
+        If ComboBox1.Items.Count > 0 Then
+            Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+            BookmarkThisPageToolStripMenuItem.Enabled = True
+            BookmarkThisPageToolStripMenuItem.Text = "Bookmark " & page
+        Else
+            BookmarkThisPageToolStripMenuItem.Enabled = False
+            BookmarkThisPageToolStripMenuItem.Text = "Bookmark this page"
+        End If
+    End Sub
+
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+        If ListView1.SelectedItems.Count = 1 Then
+            ComboBox1.Text = ListView1.SelectedItems.Item(0).Text
+            Go(sender, e)
+        End If
+    End Sub
+
+    Private Sub RemoveBookmarkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveBookmarkToolStripMenuItem.Click
+        Try
+            ListView1.Items.Remove(ListView1.SelectedItems.Item(0))
+            SaveBookmarks()
+        Catch ex As Exception
+        End Try
+    End Sub
+
+    Private Sub BookmarkThisPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkThisPageToolStripMenuItem.Click
+        Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+        ListView1.Items.Add(page)
+        SaveBookmarks()
+    End Sub
+
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        SaveBookmarks()
     End Sub
 End Class

@@ -78,7 +78,7 @@ Public Class Form1
                 Dim CLArray = CurrentLine.Split(vbTab)
 
                 If CLArray(0).StartsWith("i") Then
-                    html = html & "<pre class='i' title='Information'>" & CLArray(0).Substring(1) & "</pre>"
+                    html = html & "<pre class='i' title='Inline text'>" & CLArray(0).Substring(1) & "</pre>"
                 ElseIf CLArray(0).StartsWith("3") Then
                     html = html & "<pre class='3' title='Error'>" & CLArray(0).Substring(1) & "</pre>"
                 ElseIf CLArray(0).StartsWith("h") Then

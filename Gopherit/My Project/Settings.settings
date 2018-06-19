@@ -18,7 +18,7 @@ pre {
  /* you can replace "monospace" with whatever font you desire surrounded by ' characters */
 }
 .i {
-  /* information */
+  /* inline text */
   color: green;
 }
 .h {

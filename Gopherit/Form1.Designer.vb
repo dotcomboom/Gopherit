@@ -162,10 +162,10 @@ Partial Class Form1
         Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.ListView1.Location = New System.Drawing.Point(182, 53)
+        Me.ListView1.Location = New System.Drawing.Point(196, 53)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(490, 66)
+        Me.ListView1.Size = New System.Drawing.Size(476, 66)
         Me.ListView1.TabIndex = 11
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List

@@ -7,11 +7,15 @@
     </Setting>
     <Setting Name="StyleDefault" Type="System.String" Scope="Application">
       <Value Profile="(Default)">body {
+  /* page background color: */
   background-color: white;
+  /* color for unknown selectors: */
   color: black;
 }
 pre {
+  /* all gophermap text */
   font-family: monospace;
+ /* you can replace "monospace" with whatever font you desire surrounded by ' characters */
 }
 .i {
   /* information */

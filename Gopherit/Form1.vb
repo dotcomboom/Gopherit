@@ -88,12 +88,21 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        curl = FindCurl()
+        Try
+            curl = FindCurl()
 
-        If curl = Nothing Then
-            MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & " or your PATH. You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into the working directory.", MsgBoxStyle.Exclamation, "Curl not found")
-            Application.Exit()
-        End If
+            If curl = Nothing Then
+                MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & " or your PATH. You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into the working directory.", MsgBoxStyle.Exclamation, "Curl not found")
+                Application.Exit()
+            End If
+        Catch ex As Exception
+            curl = "curl.exe"
+
+            If Not My.Computer.FileSystem.FileExists(curl) Then
+                MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & ". You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into the working directory.", MsgBoxStyle.Exclamation, "Curl not found")
+                Application.Exit()
+            End If
+        End Try
 
         WebBrowser1.Navigate("about:blank")
     End Sub

@@ -55,7 +55,7 @@ Public Class Form1
 
     Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
         Me.UseWaitCursor = True
-        Label1.Text = "Working"
+        Label1.Text = "Fetching"
         Label1.ForeColor = Color.YellowGreen
         Me.Refresh()
 
@@ -64,6 +64,9 @@ Public Class Form1
         End If
         Dim url = ComboBox1.Text
         TextBox2.Text = CurlFetch(url)
+
+        Label1.Text = "Parsing"
+        Refresh()
 
         Dim strReader As New IO.StringReader(TextBox2.Text)
         Dim CurrentLine = strReader.ReadLine
@@ -137,6 +140,8 @@ Public Class Form1
 
         html = html & "</body></html>"
 
+        Label1.Text = "Finishing"
+        Refresh()
 
         WebBrowser1.DocumentText = html
 

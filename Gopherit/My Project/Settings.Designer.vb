@@ -69,7 +69,8 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("body{background-color:white;color:black}pre{font-family:monospace}.i{color:green}"& _ 
-            ".h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}")>  _
+            ".h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}.3 a{color:red"& _ 
+            "}.5 a{color:brown}.9 a{color:brown}.g a{color:brown}.Im a{color:brown}")>  _
         Public Property StyleDefault() As String
             Get
                 Return CType(Me("StyleDefault"),String)

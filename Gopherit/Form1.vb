@@ -3,19 +3,6 @@
 Public Class Form1
     Public curl = "curl.exe"
 
-    Public Shared Function FindCurl()
-        Dim fileName = "curl.exe"
-        If File.Exists(fileName) Then Return Path.GetFullPath(fileName)
-        Dim values = Environment.GetEnvironmentVariable("PATH")
-
-        For Each path In values.Split(";"c)
-            Dim fullPath = path & fileName
-            If File.Exists(fullPath) Then Return fullPath
-        Next
-
-        Return Nothing
-    End Function
-
     Private Function CurlFetch(url As String)
         Dim oProcess As New Process()
         Dim oStartInfo As New ProcessStartInfo(curl, url)
@@ -31,6 +18,16 @@ Public Class Form1
             sOutput = oStreamReader.ReadToEnd()
         End Using
         Return sOutput
+    End Function
+    Private Function JustDownload(url As String)
+        Dim oProcess As New Process()
+        Dim oStartInfo As New ProcessStartInfo(curl)
+        oStartInfo.Arguments = "-O " & url
+        oStartInfo.UseShellExecute = True
+        oProcess.StartInfo = oStartInfo
+        oProcess.Start()
+        Process.Start(My.Computer.FileSystem.CurrentDirectory)
+        Return True
     End Function
 
     Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
@@ -58,6 +55,8 @@ Public Class Form1
 
                 If CLArray(0).StartsWith("i") Then
                     html = html & "<pre class='i' title='Information'>" & CLArray(0).Substring(1) & "</pre>"
+                ElseIf CLArray(0).StartsWith("3") Then
+                    html = html & "<pre class='3' title='Error'>" & CLArray(0).Substring(1) & "</pre>"
                 ElseIf CLArray(0).StartsWith("h") Then
                     html = html & "<pre class='h' title='HTML Document'><a target='_blank' href='" & CLArray(1).Replace("URL:", "") & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("0") Then
@@ -95,6 +94,14 @@ Public Class Form1
                     html = html & "<pre class='1' title='Directory'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("7") Then
                     html = html & "<pre class='7' title='Search'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("9") Then
+                    html = html & "<pre class='9' title='Binary File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("5") Then
+                    html = html & "<pre class='5' title='PC binary'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("g") Then
+                    html = html & "<pre class='I' title='GIF image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("I") Then
+                    html = html & "<pre class='Im' title='Generic image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 Else
                     html = html & "<pre title='Unknown'>" & CurrentLine & "</pre>"
                 End If
@@ -109,11 +116,10 @@ Public Class Form1
 
         WebBrowser1.DocumentText = html
 
-        Dim cbtemp = url
-        If ComboBox1.Items.Contains(cbtemp) Then
-            ComboBox1.Items.Remove(cbtemp)
+        If ComboBox1.Items.Contains(url) Then
+            ComboBox1.Items.Remove(url)
         End If
-        ComboBox1.Items.Add(cbtemp)
+        ComboBox1.Items.Add(url)
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
         If ComboBox1.Items.Count > 1 Then
             Button6.Enabled = True
@@ -132,21 +138,10 @@ Public Class Form1
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If
 
-        Try
-            curl = FindCurl()
-
-            If curl = Nothing Then
-                MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & " or your PATH. You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into the working directory.", MsgBoxStyle.Exclamation, "Curl not found")
-                Application.Exit()
-            End If
-        Catch ex As Exception
-            curl = "curl.exe"
-
-            If Not My.Computer.FileSystem.FileExists(curl) Then
-                MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & ". You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into the working directory.", MsgBoxStyle.Exclamation, "Curl not found")
-                Application.Exit()
-            End If
-        End Try
+        If Not My.Computer.FileSystem.FileExists(curl) Then
+            MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & ". You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into this directory.", MsgBoxStyle.Exclamation, "Curl not found")
+            Application.Exit()
+        End If
 
         WebBrowser1.Navigate("about:blank")
     End Sub
@@ -170,6 +165,15 @@ Public Class Form1
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&search=yes") Then
                 ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&search=yes", "") & "?" & InputBox("Enter a query for the remote server to process.", "Query requested")
+                TabControl1.SelectTab(0)
+                Go(sender, e)
+            ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&dl=yes") Then
+                Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "")
+                Dim dlurlsplit = dlurl.Split("/")
+                If MsgBox("Download file " & dlurlsplit.Last & " to " & My.Computer.FileSystem.CurrentDirectory & "\" & dlurlsplit.Last & "?", MsgBoxStyle.YesNo, "Download file") = MsgBoxResult.Yes Then
+                    JustDownload(dlurl)
+                End If
+                ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
                 TabControl1.SelectTab(0)
                 Go(sender, e)
             Else

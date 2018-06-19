@@ -34,7 +34,7 @@ Partial Class Settings
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Location = New System.Drawing.Point(430, 169)
+        Me.Button1.Location = New System.Drawing.Point(430, 307)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(81, 45)
         Me.Button1.TabIndex = 0
@@ -48,7 +48,7 @@ Partial Class Settings
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(309, 202)
+        Me.GroupBox1.Size = New System.Drawing.Size(309, 340)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stylesheet"
@@ -68,12 +68,12 @@ Partial Class Settings
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox1.Size = New System.Drawing.Size(293, 64)
+        Me.TextBox1.Size = New System.Drawing.Size(293, 202)
         Me.TextBox1.TabIndex = 1
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(10, 155)
+        Me.Button2.Location = New System.Drawing.Point(10, 293)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(114, 41)
         Me.Button2.TabIndex = 2
@@ -83,7 +83,7 @@ Partial Class Settings
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.Location = New System.Drawing.Point(343, 169)
+        Me.Button3.Location = New System.Drawing.Point(343, 307)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(81, 45)
         Me.Button3.TabIndex = 2
@@ -94,7 +94,7 @@ Partial Class Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 231)
+        Me.ClientSize = New System.Drawing.Size(523, 369)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button1)

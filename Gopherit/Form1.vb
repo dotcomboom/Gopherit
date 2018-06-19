@@ -16,6 +16,7 @@ Public Class Form1
     End Function
     Private Function LoadBookmarks()
         Try
+            ListView1.Items.Clear()
             For Each item In My.Settings.Bookmarks
                 ListView1.Items.Add(item)
                 Refresh()
@@ -55,7 +56,7 @@ Public Class Form1
     Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
         Me.UseWaitCursor = True
         Label1.Text = "Working"
-        Label1.ForeColor = Color.Yellow
+        Label1.ForeColor = Color.YellowGreen
         Me.Refresh()
 
         If Not ComboBox1.Text.Contains("://") Then
@@ -215,7 +216,9 @@ Public Class Form1
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        Settings.ShowDialog()
+        If Settings.ShowDialog() = DialogResult.OK Then
+            LoadBookmarks()
+        End If
     End Sub
 
     Private Sub ComboBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyDown

@@ -28,12 +28,16 @@ Partial Class Settings
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Button1.Location = New System.Drawing.Point(430, 307)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(81, 45)
@@ -83,6 +87,7 @@ Partial Class Settings
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Button3.Location = New System.Drawing.Point(343, 307)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(81, 45)
@@ -90,11 +95,32 @@ Partial Class Settings
         Me.Button3.Text = "Cancel"
         Me.Button3.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.CheckBox1)
+        Me.GroupBox2.Location = New System.Drawing.Point(327, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(184, 59)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Bookmarks"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(6, 25)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(78, 24)
+        Me.CheckBox1.TabIndex = 0
+        Me.CheckBox1.Text = "Reset"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(523, 369)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Button1)
@@ -105,6 +131,8 @@ Partial Class Settings
         Me.Text = "Settings"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -115,4 +143,6 @@ Partial Class Settings
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

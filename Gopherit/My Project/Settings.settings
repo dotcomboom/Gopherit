@@ -5,7 +5,7 @@
     <Setting Name="Stylesheet" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="StyleDefault" Type="System.String" Scope="User">
+    <Setting Name="StyleDefault" Type="System.String" Scope="Application">
       <Value Profile="(Default)">body{background-color:white;color:black}pre{font-family:monospace}.i{color:green}.h{color:blue}.0 a{color:gray}.1 a{color:orange}.7 a{color:purple}.3 a{color:red}.5 a{color:brown}.9 a{color:brown}.g a{color:brown}.Im a{color:brown}</Value>
     </Setting>
     <Setting Name="Bookmarks" Type="System.Collections.Specialized.StringCollection" Scope="User">

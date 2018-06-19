@@ -5,6 +5,12 @@
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         My.Settings.Stylesheet = TextBox1.Text
+        If CheckBox1.Checked Then
+            My.Settings.Bookmarks.Clear()
+            My.Settings.Bookmarks.Add("gopher.floodgap.com")
+            My.Settings.Bookmarks.Add("gopherproject.org")
+            CheckBox1.Checked = False
+        End If
         Close()
     End Sub
 

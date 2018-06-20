@@ -203,14 +203,19 @@ Public Class Form1
 
     Private Sub WebBrowser1_LocationChanged(sender As Object, e As EventArgs) Handles WebBrowser1.DocumentCompleted
         Console.WriteLine(WebBrowser1.Url.ToString)
+        Dim type = ComboBox1.Text.Replace("gopher://", "").Split("/")(1)
+        If type = 0 Then
+            TabControl1.SelectTab(1)
+        Else
+            TabControl1.SelectTab(0)
+        End If
+
         If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").StartsWith("gopher://") Then
             If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&txt=yes") Then
                 ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&txt=yes", "")
-                TabControl1.SelectTab(1)
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&search=yes") Then
                 ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&search=yes", "") & "?" & InputBox("Enter a query for the remote server to process.", "Query requested").Replace(" ", "%20")
-                TabControl1.SelectTab(0)
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&dl=yes") Then
                 Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "")
@@ -219,11 +224,9 @@ Public Class Form1
                     JustDownload(dlurl)
                 End If
                 ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
-                TabControl1.SelectTab(0)
                 Go(sender, e)
             Else
                 ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
-                TabControl1.SelectTab(0)
                 Go(sender, e)
             End If
         End If

@@ -181,6 +181,7 @@ Public Class Form1
         Dim args = Environment.GetCommandLineArgs()
         If args.Count > 1 Then
             ComboBox1.Text = args(1)
+            Refresh()
             Go(sender, e)
         End If
     End Sub

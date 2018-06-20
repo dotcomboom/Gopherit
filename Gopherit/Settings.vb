@@ -40,6 +40,8 @@ Public Class Settings
         If MsgBox("This will set " & Application.ExecutablePath & " as the URL handler for gopher:// links in the Windows Registry.", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
             Dim gopher = Registry.ClassesRoot.CreateSubKey("gopher")
             gopher.SetValue("URL Protocol", "")
+            Dim DefaultIcon = gopher.CreateSubKey("DefaultIcon")
+            DefaultIcon.SetValue("", Application.ExecutablePath & ",0")
             Dim shell = gopher.CreateSubKey("shell")
             Dim open = shell.CreateSubKey("open")
             Dim command = open.CreateSubKey("command")

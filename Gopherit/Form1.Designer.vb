@@ -123,7 +123,7 @@ Partial Class Form1
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(628, 28)
         Me.ComboBox1.TabIndex = 1
-        Me.ComboBox1.Text = "gopher://gopher.floodgap.com"
+        Me.ComboBox1.Text = "gopher://gopherproject.org/1/"
         '
         'Button6
         '

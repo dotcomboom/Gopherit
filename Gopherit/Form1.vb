@@ -3,6 +3,21 @@ Imports System.IO
 
 Public Class Form1
     Public curl = Path.GetDirectoryName(Application.ExecutablePath) & "\curl.exe"
+
+    Public Shared Sub ScaleForm(WindowsForm As System.Windows.Forms.Form)
+        Using g As System.Drawing.Graphics = WindowsForm.CreateGraphics
+            Dim sngScaleFactor As Single = 1
+            Dim sngFontFactor As Single = 1
+            If g.DpiX > 96 Then
+                sngScaleFactor = g.DpiX / 96
+                'sngFontFactor = 96 / g.DpiY
+            End If
+            If WindowsForm.AutoScaleDimensions = WindowsForm.CurrentAutoScaleDimensions Then
+                'ucWindowsFormHost.ScaleControl(WindowsForm, sngFontFactor)
+                WindowsForm.Scale(sngScaleFactor)
+            End If
+        End Using
+    End Sub
     Private Function SaveBookmarks()
         My.Settings.Bookmarks.Clear()
         Try
@@ -231,6 +246,8 @@ Public Class Form1
             Refresh()
             Go(sender, e)
         End If
+
+        ScaleForm(Me)
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)

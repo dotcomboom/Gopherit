@@ -167,6 +167,8 @@ Public Class Form1
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If
 
+        My.Computer.FileSystem.CurrentDirectory = Path.GetDirectoryName(Application.ExecutablePath)
+
         If Not My.Computer.FileSystem.FileExists(curl) Then
             MsgBox("Gopherit was unable to find curl.exe, the application used for getting resources from the Internet, in the working directory " & My.Computer.FileSystem.CurrentDirectory & ". You will need to download a Generic binary from https://curl.haxx.se/download.html#Win32 and put it into this directory.", MsgBoxStyle.Exclamation, "Curl not found")
             Application.Exit()
@@ -175,6 +177,12 @@ Public Class Form1
         LoadBookmarks()
 
         WebBrowser1.Navigate("about:blank")
+
+        Dim args = Environment.GetCommandLineArgs()
+        If args.Count > 1 Then
+            ComboBox1.Text = args(1)
+            Go(sender, e)
+        End If
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs)

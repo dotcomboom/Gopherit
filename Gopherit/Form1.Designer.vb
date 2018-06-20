@@ -50,7 +50,7 @@ Partial Class Form1
         Me.Button1.Location = New System.Drawing.Point(697, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(69, 35)
-        Me.Button1.TabIndex = 1
+        Me.Button1.TabIndex = 2
         Me.Button1.Text = "Go"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -122,7 +122,7 @@ Partial Class Form1
         Me.ComboBox1.Location = New System.Drawing.Point(63, 16)
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(628, 28)
-        Me.ComboBox1.TabIndex = 7
+        Me.ComboBox1.TabIndex = 1
         Me.ComboBox1.Text = "gopher://gopher.floodgap.com"
         '
         'Button6
@@ -132,7 +132,7 @@ Partial Class Form1
         Me.Button6.Location = New System.Drawing.Point(12, 12)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(45, 35)
-        Me.Button6.TabIndex = 8
+        Me.Button6.TabIndex = 0
         Me.Button6.Text = "<"
         Me.Button6.UseVisualStyleBackColor = True
         '
@@ -142,7 +142,7 @@ Partial Class Form1
         Me.Button7.Location = New System.Drawing.Point(678, 53)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(88, 66)
-        Me.Button7.TabIndex = 9
+        Me.Button7.TabIndex = 5
         Me.Button7.Text = "Settings"
         Me.Button7.UseVisualStyleBackColor = True
         '
@@ -153,7 +153,7 @@ Partial Class Form1
         Me.Label1.Location = New System.Drawing.Point(12, 53)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(164, 40)
-        Me.Label1.TabIndex = 10
+        Me.Label1.TabIndex = 3
         Me.Label1.Text = "Ready"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
@@ -166,7 +166,7 @@ Partial Class Form1
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
         Me.ListView1.Size = New System.Drawing.Size(476, 66)
-        Me.ListView1.TabIndex = 11
+        Me.ListView1.TabIndex = 4
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
         '

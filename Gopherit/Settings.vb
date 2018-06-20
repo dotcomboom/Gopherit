@@ -37,7 +37,6 @@ Public Class Settings
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
-        MsgBox("""" & Application.ExecutablePath & """" & " " & """%1""")
         If MsgBox("This will set " & Application.ExecutablePath & " as the URL handler for gopher:// links in the Windows Registry.", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
             Dim gopher = Registry.ClassesRoot.CreateSubKey("gopher")
             gopher.SetValue("URL Protocol", "")

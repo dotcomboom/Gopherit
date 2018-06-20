@@ -189,6 +189,8 @@ Public Class Form1
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Text = "Gopherit (Release " & Application.ProductVersion(0) & ")"
+
         If My.Settings.Stylesheet = "" Then
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If

@@ -69,9 +69,9 @@
     End Sub
 
     Private Sub Mapper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox2.Font = My.Settings.PTFont
-        TextBox2.BackColor = My.Settings.PTBackColor
-        TextBox2.ForeColor = My.Settings.PTForeColor
+        TextBox1.Font = My.Settings.PTFont
+        TextBox1.BackColor = My.Settings.PTBackColor
+        TextBox1.ForeColor = My.Settings.PTForeColor
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

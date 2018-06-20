@@ -83,6 +83,11 @@ Public Class Settings
     Private Sub ResetSettings(sender As Object, e As EventArgs) Handles Button9.Click
         If MsgBox("Reset all settings? (This doesn't include the URL handler)", MsgBoxStyle.YesNo, "Initialize") = MsgBoxResult.Yes Then
             My.Settings.Reset()
+            My.Settings.Stylesheet = My.Settings.StyleDefault
+            My.Settings.DownloadDir = My.Computer.FileSystem.CurrentDirectory & "\Downloads"
+            If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
+                My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
+            End If
             Close()
         End If
     End Sub

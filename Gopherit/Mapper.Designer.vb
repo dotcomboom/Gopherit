@@ -177,6 +177,7 @@ Partial Class Mapper
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.TextBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(620, 491)
         Me.Name = "Mapper"
         Me.Text = "Mapper"
         Me.GroupBox1.ResumeLayout(False)

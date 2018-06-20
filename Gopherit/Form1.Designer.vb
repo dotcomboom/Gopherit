@@ -217,6 +217,7 @@ Partial Class Form1
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.Button1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MinimumSize = New System.Drawing.Size(456, 292)
         Me.Name = "Form1"
         Me.Text = "Gopherit"
         Me.TabControl1.ResumeLayout(False)

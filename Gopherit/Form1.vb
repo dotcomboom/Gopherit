@@ -234,6 +234,9 @@ Public Class Form1
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 2
+        Dim current = ComboBox1.Items.Item(ComboBox1.Items.Count - 1)
+        ComboBox1.Items.Remove(current)
+        ComboBox1.Items.Insert(0, current)
         Go(sender, e)
     End Sub
 

@@ -2,7 +2,7 @@
 Imports System.IO
 
 Public Class Form1
-    Public curl = "curl.exe"
+    Public curl = Path.GetDirectoryName(Application.ExecutablePath) & "\curl.exe"
     Private Function SaveBookmarks()
         My.Settings.Bookmarks.Clear()
         Try
@@ -43,6 +43,9 @@ Public Class Form1
         Return sOutput
     End Function
     Private Function JustDownload(url As String)
+        Dim cur = My.Computer.FileSystem.CurrentDirectory
+
+        My.Computer.FileSystem.CurrentDirectory = My.Settings.DownloadDir
         Dim oProcess As New Process()
         Dim oStartInfo As New ProcessStartInfo(curl)
         oStartInfo.Arguments = "-O " & url
@@ -50,6 +53,8 @@ Public Class Form1
         oProcess.StartInfo = oStartInfo
         oProcess.Start()
         Process.Start(My.Computer.FileSystem.CurrentDirectory)
+
+        My.Computer.FileSystem.CurrentDirectory = cur
         Return True
     End Function
 
@@ -188,6 +193,21 @@ Public Class Form1
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If
 
+        If My.Settings.DownloadDir = "" Then
+            My.Settings.DownloadDir = My.Computer.FileSystem.CurrentDirectory & "\Downloads"
+        End If
+
+        If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
+            Try
+                My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
+            Catch ex As Exception
+                My.Settings.DownloadDir = My.Computer.FileSystem.CurrentDirectory & "\Downloads"
+                If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
+                    My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
+                End If
+            End Try
+        End If
+
         My.Computer.FileSystem.CurrentDirectory = Path.GetDirectoryName(Application.ExecutablePath)
 
         If Not My.Computer.FileSystem.FileExists(curl) Then
@@ -236,13 +256,17 @@ Public Class Form1
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&dl=yes") Then
                 Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "")
                 Dim dlurlsplit = dlurl.Split("/")
-                If MsgBox("Download file " & dlurlsplit.Last & " to " & My.Computer.FileSystem.CurrentDirectory & "\" & dlurlsplit.Last & "?", MsgBoxStyle.YesNo, "Download file") = MsgBoxResult.Yes Then
+                If My.Settings.AskBeforeDownloading Then
+                    If MsgBox("Download file " & dlurlsplit.Last & " to " & My.Settings.DownloadDir & "\" & dlurlsplit.Last & "?", MsgBoxStyle.YesNo, "Download file") = MsgBoxResult.Yes Then
+                        JustDownload(dlurl)
+                    End If
+                Else
                     JustDownload(dlurl)
                 End If
                 ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
-                Go(sender, e)
-            Else
-                ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
+                    Go(sender, e)
+                Else
+                    ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
                 Go(sender, e)
             End If
         End If

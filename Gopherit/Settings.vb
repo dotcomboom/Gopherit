@@ -15,11 +15,25 @@ Public Class Settings
             My.Settings.Bookmarks.Add("gopher.floodgap.com/1")
             CheckBox1.Checked = False
         End If
+        My.Settings.AskBeforeDownloading = CheckBox2.Checked
+        My.Settings.DownloadDir = TextBox2.Text
+        If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
+            Try
+                My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
+            Catch ex As Exception
+                My.Settings.DownloadDir = My.Computer.FileSystem.CurrentDirectory & "\Downloads"
+                If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
+                    My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
+                End If
+            End Try
+        End If
         Close()
     End Sub
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = My.Settings.Stylesheet
+        TextBox2.Text = My.Settings.DownloadDir
+        CheckBox2.Checked = My.Settings.AskBeforeDownloading
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
         Dim isElevated As Boolean = principal.IsInRole(WindowsBuiltInRole.Administrator)
@@ -48,6 +62,22 @@ Public Class Settings
             command.SetValue("", """" & Application.ExecutablePath & """" & " " & """%1""")
             Button4.Text = "Done"
             Button4.Enabled = False
+        End If
+    End Sub
+
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+        Dim opendir As New FolderBrowserDialog
+        opendir.Description = "Select the Downloads directory to use."
+        opendir.SelectedPath = TextBox2.Text
+        If opendir.ShowDialog = DialogResult.OK Then
+            TextBox2.Text = opendir.SelectedPath
+        End If
+    End Sub
+
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        If MsgBox("Reset all settings? (This doesn't include the URL handler)", MsgBoxStyle.YesNo, "Initialize") = MsgBoxResult.Yes Then
+            My.Settings.Reset()
+            Close()
         End If
     End Sub
 End Class

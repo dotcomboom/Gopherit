@@ -24,25 +24,32 @@ Partial Class Settings
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button6 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.Button1.Location = New System.Drawing.Point(430, 307)
+        Me.Button1.Location = New System.Drawing.Point(430, 412)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(81, 45)
         Me.Button1.TabIndex = 10
@@ -61,14 +68,14 @@ Partial Class Settings
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Stylesheet"
         '
-        'Label1
+        'Button2
         '
-        Me.Label1.Location = New System.Drawing.Point(6, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(297, 70)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "You can customize the stylesheet Gopherit uses when it renders gophermaps as HTML" &
-    "."
+        Me.Button2.Location = New System.Drawing.Point(10, 293)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(114, 41)
+        Me.Button2.TabIndex = 2
+        Me.Button2.Text = "Reset"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -79,20 +86,20 @@ Partial Class Settings
         Me.TextBox1.Size = New System.Drawing.Size(293, 202)
         Me.TextBox1.TabIndex = 1
         '
-        'Button2
+        'Label1
         '
-        Me.Button2.Location = New System.Drawing.Point(10, 293)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(114, 41)
-        Me.Button2.TabIndex = 2
-        Me.Button2.Text = "Reset"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Label1.Location = New System.Drawing.Point(6, 22)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(297, 70)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "You can customize the stylesheet Gopherit uses when it renders gophermaps as HTML" &
+    "."
         '
         'Button3
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button3.Location = New System.Drawing.Point(343, 307)
+        Me.Button3.Location = New System.Drawing.Point(343, 412)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(81, 45)
         Me.Button3.TabIndex = 9
@@ -130,14 +137,6 @@ Partial Class Settings
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "URL Handler"
         '
-        'Label2
-        '
-        Me.Label2.Location = New System.Drawing.Point(6, 23)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(178, 67)
-        Me.Label2.TabIndex = 0
-        Me.Label2.Text = "You can set Gopherit to handle gopher:// URLs in your web browser."
-        '
         'Button4
         '
         Me.Button4.Location = New System.Drawing.Point(27, 93)
@@ -147,11 +146,79 @@ Partial Class Settings
         Me.Button4.Text = "Set as URL Handler"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.Location = New System.Drawing.Point(6, 23)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(178, 67)
+        Me.Label2.TabIndex = 0
+        Me.Label2.Text = "You can set Gopherit to handle gopher:// URLs in your web browser."
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Controls.Add(Me.Label3)
+        Me.GroupBox4.Controls.Add(Me.Button5)
+        Me.GroupBox4.Controls.Add(Me.TextBox2)
+        Me.GroupBox4.Controls.Add(Me.CheckBox2)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 357)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(325, 100)
+        Me.GroupBox4.TabIndex = 11
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Downloads"
+        '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(281, 52)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(33, 29)
+        Me.Button5.TabIndex = 2
+        Me.Button5.Text = "..."
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(86, 55)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.ReadOnly = True
+        Me.TextBox2.Size = New System.Drawing.Size(189, 26)
+        Me.TextBox2.TabIndex = 1
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(10, 25)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(205, 24)
+        Me.CheckBox2.TabIndex = 0
+        Me.CheckBox2.Text = "Ask before downloading"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 58)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(74, 20)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Location:"
+        '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(368, 279)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(92, 53)
+        Me.Button6.TabIndex = 12
+        Me.Button6.Text = "Reset All"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 369)
+        Me.ClientSize = New System.Drawing.Size(523, 474)
+        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.Button3)
@@ -168,6 +235,8 @@ Partial Class Settings
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -183,4 +252,10 @@ Partial Class Settings
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents Button4 As Button
     Friend WithEvents Label2 As Label
+    Friend WithEvents GroupBox4 As GroupBox
+    Friend WithEvents Button5 As Button
+    Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents CheckBox2 As CheckBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Button6 As Button
 End Class

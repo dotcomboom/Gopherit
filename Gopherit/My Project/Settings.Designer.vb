@@ -101,6 +101,30 @@ Namespace My
                 Me("Bookmarks") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property AskBeforeDownloading() As Boolean
+            Get
+                Return CType(Me("AskBeforeDownloading"),Boolean)
+            End Get
+            Set
+                Me("AskBeforeDownloading") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property DownloadDir() As String
+            Get
+                Return CType(Me("DownloadDir"),String)
+            End Get
+            Set
+                Me("DownloadDir") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

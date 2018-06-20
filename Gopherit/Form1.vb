@@ -54,15 +54,20 @@ Public Class Form1
     End Function
 
     Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim qsplit = ComboBox1.Text.Split("?")
+        If qsplit.Count > 1 Then
+            ComboBox1.Text = "gopher://" & qsplit(0).Replace("gopher://", "").Replace("//", "/") & "?" & String.Join("", qsplit.Skip(1))
+        Else
+            ComboBox1.Text = "gopher://" & ComboBox1.Text.Replace("gopher://", "").Replace("//", "/")
+        End If
+
+        Dim url = ComboBox1.Text
+
         Me.UseWaitCursor = True
         Label1.Text = "Fetching"
         Label1.ForeColor = Color.YellowGreen
-        Me.Refresh()
+        Refresh()
 
-        If Not ComboBox1.Text.Contains("://") Then
-            ComboBox1.Text = "gopher://" & ComboBox1.Text
-        End If
-        Dim url = ComboBox1.Text
         TextBox2.Text = CurlFetch(url)
 
         Label1.Text = "Parsing"

@@ -42,11 +42,11 @@ pre {
   /* search service */
   color: purple;
 }
-/* The following are binary-type files that are downloaded (not viewed) */
 .3 a {
   /* error */
   color: red;
 }
+/* The following are binary-type files that are downloaded (not viewed) */
 .4 a {
   /* HQX filer */
   color: brown;
@@ -66,7 +66,8 @@ pre {
 .g a {
   /* GIF image */
   color: brown;
-}.s a {
+}
+.s a {
   /* Sound */
   color: brown;
 }

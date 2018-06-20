@@ -215,6 +215,10 @@ Public Class Form1
             Application.Exit()
         End If
 
+        TextBox2.Font = My.Settings.PTFont
+        TextBox2.BackColor = My.Settings.PTBackColor
+        TextBox2.ForeColor = My.Settings.PTForeColor
+
         LoadBookmarks()
 
         WebBrowser1.Navigate("about:blank")
@@ -280,9 +284,12 @@ Public Class Form1
         Go(sender, e)
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button2.Click
         If Settings.ShowDialog() = DialogResult.OK Then
             LoadBookmarks()
+            TextBox2.Font = My.Settings.PTFont
+            TextBox2.BackColor = My.Settings.PTBackColor
+            TextBox2.ForeColor = My.Settings.PTForeColor
         End If
     End Sub
 
@@ -331,5 +338,10 @@ Public Class Form1
 
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         SaveBookmarks()
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim mpr As New Mapper
+        mpr.show
     End Sub
 End Class

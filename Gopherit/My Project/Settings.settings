@@ -90,5 +90,14 @@ pre {
     <Setting Name="DownloadDir" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="PTForeColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="PTBackColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="PTFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Courier New, 10pt</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

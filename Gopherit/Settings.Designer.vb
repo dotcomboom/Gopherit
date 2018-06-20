@@ -34,15 +34,19 @@ Partial Class Settings
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -167,6 +171,15 @@ Partial Class Settings
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Downloads"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 58)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(74, 20)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "Location:"
+        '
         'Button5
         '
         Me.Button5.Location = New System.Drawing.Point(281, 52)
@@ -194,22 +207,45 @@ Partial Class Settings
         Me.CheckBox2.Text = "Ask before downloading"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
-        'Label3
+        'GroupBox5
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 58)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(74, 20)
-        Me.Label3.TabIndex = 3
-        Me.Label3.Text = "Location:"
+        Me.GroupBox5.Controls.Add(Me.Button8)
+        Me.GroupBox5.Controls.Add(Me.Button7)
+        Me.GroupBox5.Controls.Add(Me.Button6)
+        Me.GroupBox5.Location = New System.Drawing.Point(343, 267)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(168, 139)
+        Me.GroupBox5.TabIndex = 4
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Plain Text"
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.White
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Location = New System.Drawing.Point(100, 26)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(62, 53)
+        Me.Button8.TabIndex = 2
+        Me.Button8.UseVisualStyleBackColor = False
+        '
+        'Button7
+        '
+        Me.Button7.BackColor = System.Drawing.Color.Black
+        Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button7.Location = New System.Drawing.Point(100, 80)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(62, 53)
+        Me.Button7.TabIndex = 1
+        Me.Button7.UseVisualStyleBackColor = False
         '
         'Button6
         '
-        Me.Button6.Location = New System.Drawing.Point(368, 279)
+        Me.Button6.Location = New System.Drawing.Point(7, 26)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(92, 53)
-        Me.Button6.TabIndex = 12
-        Me.Button6.Text = "Reset All"
+        Me.Button6.Size = New System.Drawing.Size(86, 107)
+        Me.Button6.TabIndex = 0
+        Me.Button6.Text = "Font"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Settings
@@ -217,7 +253,7 @@ Partial Class Settings
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(523, 474)
-        Me.Controls.Add(Me.Button6)
+        Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -237,6 +273,7 @@ Partial Class Settings
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -257,5 +294,8 @@ Partial Class Settings
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Button6 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents Button7 As Button
 End Class

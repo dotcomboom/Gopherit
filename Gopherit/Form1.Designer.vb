@@ -32,12 +32,13 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ListView1 = New System.Windows.Forms.ListView()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BookmarkThisPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveBookmarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -61,10 +62,10 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabControl1.Controls.Add(Me.TabPage1)
         Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Location = New System.Drawing.Point(11, 96)
+        Me.TabControl1.Location = New System.Drawing.Point(11, 125)
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(755, 490)
+        Me.TabControl1.Size = New System.Drawing.Size(755, 461)
         Me.TabControl1.TabIndex = 6
         '
         'TabPage1
@@ -73,7 +74,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(747, 457)
+        Me.TabPage1.Size = New System.Drawing.Size(747, 428)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Gophermap"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -85,7 +86,7 @@ Partial Class Form1
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(741, 451)
+        Me.WebBrowser1.Size = New System.Drawing.Size(741, 422)
         Me.WebBrowser1.TabIndex = 2
         Me.WebBrowser1.Url = New System.Uri("about:blank", System.UriKind.Absolute)
         Me.WebBrowser1.WebBrowserShortcutsEnabled = False
@@ -96,7 +97,7 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(747, 457)
+        Me.TabPage2.Size = New System.Drawing.Size(747, 428)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Plain text"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -111,7 +112,7 @@ Partial Class Form1
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox2.Size = New System.Drawing.Size(741, 451)
+        Me.TextBox2.Size = New System.Drawing.Size(741, 422)
         Me.TextBox2.TabIndex = 0
         '
         'ComboBox1
@@ -136,23 +137,13 @@ Partial Class Form1
         Me.Button6.Text = "<"
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Button7
-        '
-        Me.Button7.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button7.Location = New System.Drawing.Point(678, 53)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(88, 66)
-        Me.Button7.TabIndex = 5
-        Me.Button7.Text = "Settings"
-        Me.Button7.UseVisualStyleBackColor = True
-        '
         'Label1
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Green
         Me.Label1.Location = New System.Drawing.Point(12, 53)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(164, 40)
+        Me.Label1.Size = New System.Drawing.Size(178, 69)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Ready"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -165,7 +156,7 @@ Partial Class Form1
         Me.ListView1.Location = New System.Drawing.Point(196, 53)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(476, 66)
+        Me.ListView1.Size = New System.Drawing.Size(472, 95)
         Me.ListView1.TabIndex = 4
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -190,6 +181,26 @@ Partial Class Form1
         Me.RemoveBookmarkToolStripMenuItem.Size = New System.Drawing.Size(243, 30)
         Me.RemoveBookmarkToolStripMenuItem.Text = "Remove bookmark"
         '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.Location = New System.Drawing.Point(674, 53)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(92, 49)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Settings"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Location = New System.Drawing.Point(674, 108)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(92, 40)
+        Me.Button3.TabIndex = 8
+        Me.Button3.Text = "Mapper"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -197,9 +208,10 @@ Partial Class Form1
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.ClientSize = New System.Drawing.Size(778, 598)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.ListView1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button7)
         Me.Controls.Add(Me.Button6)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TabControl1)
@@ -223,10 +235,11 @@ Partial Class Form1
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents ComboBox1 As ComboBox
     Friend WithEvents Button6 As Button
-    Friend WithEvents Button7 As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents ListView1 As ListView
     Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
     Friend WithEvents BookmarkThisPageToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents RemoveBookmarkToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Button3 As Button
 End Class

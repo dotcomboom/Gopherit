@@ -17,6 +17,9 @@ Public Class Settings
         End If
         My.Settings.AskBeforeDownloading = CheckBox2.Checked
         My.Settings.DownloadDir = TextBox2.Text
+        My.Settings.PTFont = Button6.Font
+        My.Settings.PTForeColor = Button7.BackColor
+        My.Settings.PTBackColor = Button8.BackColor
         If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
             Try
                 My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
@@ -33,6 +36,9 @@ Public Class Settings
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = My.Settings.Stylesheet
         TextBox2.Text = My.Settings.DownloadDir
+        Button6.Font = My.Settings.PTFont
+        Button7.BackColor = My.Settings.PTForeColor
+        Button8.BackColor = My.Settings.PTBackColor
         CheckBox2.Checked = My.Settings.AskBeforeDownloading
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
@@ -74,10 +80,30 @@ Public Class Settings
         End If
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub ResetSettings(sender As Object, e As EventArgs)
         If MsgBox("Reset all settings? (This doesn't include the URL handler)", MsgBoxStyle.YesNo, "Initialize") = MsgBoxResult.Yes Then
             My.Settings.Reset()
             Close()
+        End If
+    End Sub
+
+    Private Sub GroupBox5_Enter(sender As Object, e As EventArgs) Handles GroupBox5.Enter
+
+    End Sub
+
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click
+        Dim color As New ColorDialog
+        color.Color = sender.BackColor
+        If color.ShowDialog() = DialogResult.OK Then
+            sender.Backcolor = color.Color
+        End If
+    End Sub
+
+    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+        Dim font As New FontDialog
+        font.Font = Button6.Font
+        If font.ShowDialog() = DialogResult.OK Then
+            Button6.Font = font.Font
         End If
     End Sub
 End Class

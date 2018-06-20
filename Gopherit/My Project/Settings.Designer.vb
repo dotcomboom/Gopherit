@@ -125,6 +125,42 @@ Namespace My
                 Me("DownloadDir") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Black")>  _
+        Public Property PTForeColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("PTForeColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("PTForeColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("White")>  _
+        Public Property PTBackColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("PTBackColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("PTBackColor") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Courier New, 10pt")>  _
+        Public Property PTFont() As Global.System.Drawing.Font
+            Get
+                Return CType(Me("PTFont"),Global.System.Drawing.Font)
+            End Get
+            Set
+                Me("PTFont") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

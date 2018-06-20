@@ -161,6 +161,7 @@ Partial Class Settings
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Settings"
+        Me.ShowInTaskbar = False
         Me.Text = "Settings"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

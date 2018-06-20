@@ -80,7 +80,7 @@ Public Class Settings
         End If
     End Sub
 
-    Private Sub ResetSettings(sender As Object, e As EventArgs)
+    Private Sub ResetSettings(sender As Object, e As EventArgs) Handles Button9.Click
         If MsgBox("Reset all settings? (This doesn't include the URL handler)", MsgBoxStyle.YesNo, "Initialize") = MsgBoxResult.Yes Then
             My.Settings.Reset()
             Close()

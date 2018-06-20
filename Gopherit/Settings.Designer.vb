@@ -42,6 +42,7 @@ Partial Class Settings
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
+        Me.Button9 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -53,7 +54,7 @@ Partial Class Settings
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.Button1.Location = New System.Drawing.Point(430, 412)
+        Me.Button1.Location = New System.Drawing.Point(430, 473)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(81, 45)
         Me.Button1.TabIndex = 10
@@ -103,7 +104,7 @@ Partial Class Settings
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button3.Location = New System.Drawing.Point(343, 412)
+        Me.Button3.Location = New System.Drawing.Point(343, 473)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(81, 45)
         Me.Button3.TabIndex = 9
@@ -248,11 +249,21 @@ Partial Class Settings
         Me.Button6.Text = "Font"
         Me.Button6.UseVisualStyleBackColor = True
         '
+        'Button9
+        '
+        Me.Button9.Location = New System.Drawing.Point(12, 473)
+        Me.Button9.Name = "Button9"
+        Me.Button9.Size = New System.Drawing.Size(164, 45)
+        Me.Button9.TabIndex = 12
+        Me.Button9.Text = "Reset All Settings"
+        Me.Button9.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 474)
+        Me.ClientSize = New System.Drawing.Size(523, 535)
+        Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.GroupBox3)
@@ -298,4 +309,5 @@ Partial Class Settings
     Friend WithEvents Button6 As Button
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
+    Friend WithEvents Button9 As Button
 End Class

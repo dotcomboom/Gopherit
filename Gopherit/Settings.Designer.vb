@@ -125,7 +125,7 @@ Partial Class Settings
         Me.GroupBox3.Controls.Add(Me.Label2)
         Me.GroupBox3.Location = New System.Drawing.Point(327, 77)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(184, 194)
+        Me.GroupBox3.Size = New System.Drawing.Size(184, 184)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "URL Handler"

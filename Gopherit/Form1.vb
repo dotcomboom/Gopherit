@@ -76,8 +76,6 @@ Public Class Form1
         Do While (Not CurrentLine Is Nothing)
 
             Try
-                CurrentLine = CurrentLine.Replace("error.host	1", "")
-
                 Dim CLArray = CurrentLine.Split(vbTab)
 
                 If CLArray(0).StartsWith("i") Then

@@ -103,7 +103,6 @@ Public Class Form1
                     Dim port = CLArray(3)
                     If Not path.StartsWith("/") Then
                         path = url.Replace("gopher://", "").Split("/").Skip(1).ToString
-                        'MsgBox(path)
                     End If
                     If server Is Nothing Then
                         server = url.Replace("gopher://", "").Split("/")(0)
@@ -112,6 +111,13 @@ Public Class Form1
                         port = 70
                     End If
                     html = html & "<pre class='0' title='Text File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&txt=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("8") Then
+                    '8Dura-Europe BBS	a	dura-bbs.net	6359
+                    Dim text = CLArray(0).Substring(1)
+                    Dim server = CLArray(2)
+                    Dim port = CLArray(3)
+
+                    html = html & "<pre class='8' title='Telnet Session'><a href='telnet:" & CLArray(2) & ":" & CLArray(3) & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("1") Then
                     Dim text = CLArray(0).Substring(1)
                     Dim path = CLArray(1)

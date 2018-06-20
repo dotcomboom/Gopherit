@@ -33,8 +33,12 @@ Partial Class Mapper
         Me.TextBox5 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
@@ -67,6 +71,7 @@ Partial Class Mapper
         '
         'Panel2
         '
+        Me.Panel2.Controls.Add(Me.GroupBox2)
         Me.Panel2.Controls.Add(Me.GroupBox1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
         Me.Panel2.Location = New System.Drawing.Point(398, 0)
@@ -135,6 +140,35 @@ Partial Class Mapper
         Me.Button1.Text = "+"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Button3)
+        Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Location = New System.Drawing.Point(0, 321)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(200, 114)
+        Me.GroupBox2.TabIndex = 2
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "File"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(25, 25)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(77, 77)
+        Me.Button2.TabIndex = 0
+        Me.Button2.Text = "Open"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(108, 25)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(77, 77)
+        Me.Button3.TabIndex = 1
+        Me.Button3.Text = "Save As"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Mapper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -148,6 +182,7 @@ Partial Class Mapper
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -163,4 +198,7 @@ Partial Class Mapper
     Friend WithEvents TextBox3 As TextBox
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Button3 As Button
+    Friend WithEvents Button2 As Button
 End Class

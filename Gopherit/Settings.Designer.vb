@@ -217,7 +217,7 @@ Partial Class Settings
         Me.GroupBox5.Size = New System.Drawing.Size(168, 139)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
-        Me.GroupBox5.Text = "Plain Text"
+        Me.GroupBox5.Text = "Plain Text/Mapper"
         '
         'Button8
         '

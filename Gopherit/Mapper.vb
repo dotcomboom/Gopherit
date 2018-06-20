@@ -67,4 +67,28 @@
         TextBox4.Clear()
         TextBox5.Text = "70"
     End Sub
+
+    Private Sub Mapper_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        TextBox2.Font = My.Settings.PTFont
+        TextBox2.BackColor = My.Settings.PTBackColor
+        TextBox2.ForeColor = My.Settings.PTForeColor
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim open As New OpenFileDialog
+        open.Title = "Open Gophermap"
+        open.Filter = "Gophermap|gophermap|All files (*.*)|*.*"
+        If open.ShowDialog = DialogResult.OK Then
+            TextBox1.Text = My.Computer.FileSystem.ReadAllText(open.FileName)
+        End If
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Dim save As New SaveFileDialog
+        save.Title = "Save Gophermap"
+        save.Filter = "Gophermap|gophermap|All files (*.*)|*.*"
+        If save.ShowDialog = DialogResult.OK Then
+            My.Computer.FileSystem.WriteAllText(save.FileName, TextBox1.Text, False)
+        End If
+    End Sub
 End Class

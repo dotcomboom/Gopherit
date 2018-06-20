@@ -284,7 +284,7 @@ Public Class Form1
     End Sub
 
     Private Sub BookmarkThisPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkThisPageToolStripMenuItem.Click
-        Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+        Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "").replace(":70", "").TrimEnd("/")
         ListView1.Items.Add(page)
         SaveBookmarks()
     End Sub

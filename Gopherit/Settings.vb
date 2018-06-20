@@ -10,8 +10,9 @@ Public Class Settings
         My.Settings.Stylesheet = TextBox1.Text
         If CheckBox1.Checked Then
             My.Settings.Bookmarks.Clear()
-            My.Settings.Bookmarks.Add("gopher.floodgap.com/1/")
-            My.Settings.Bookmarks.Add("gopherproject.org/1/")
+            My.Settings.Bookmarks.Add("tilde.town/1/~dcb/gopherit")
+            My.Settings.Bookmarks.Add("gopherproject.org/1")
+            My.Settings.Bookmarks.Add("gopher.floodgap.com/1")
             CheckBox1.Checked = False
         End If
         Close()

@@ -247,7 +247,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.DoubleClick, ListView1.ItemActivate
         If ListView1.SelectedItems.Count = 1 Then
             ComboBox1.Text = ListView1.SelectedItems.Item(0).Text
             Go(sender, e)

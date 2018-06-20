@@ -22,7 +22,7 @@ pre {
   color: green;
 }
 .h {
-  /* html document link */
+  /* html document or off-gopher resource */
   color: blue;
 }
 .0 a {
@@ -33,16 +33,26 @@ pre {
   /* directory */
   color: orange;
 }
+
 .7 a {
   /* search service */
   color: purple;
 }
+/* The following are binary-type files that are downloaded (not viewed) */
 .3 a {
   /* error */
   color: red;
 }
+.4 a {
+  /* HQX filer */
+  color: brown;
+}
 .5 a {
   /* PC binary */
+  color: brown;
+}
+}.6 a {
+  /* UNIX uuencoded file */
   color: brown;
 }
 .9 a {
@@ -52,9 +62,12 @@ pre {
 .g a {
   /* GIF image */
   color: brown;
+}.s a {
+  /* Sound */
+  color: brown;
 }
 .Im a {
-  /* gopher item type capital i */
+  /* gopher item type, capitalized i */
   /* generic image */
   color: brown;
 }</Value>

@@ -90,7 +90,11 @@ Public Class Form1
                 ElseIf CLArray(0).StartsWith("3") Then
                     html = html & "<pre class='3' title='Error'>" & CLArray(0).Substring(1) & "</pre>"
                 ElseIf CLArray(0).StartsWith("h") Then
-                    html = html & "<pre class='h' title='HTML Document'><a target='_blank' href='" & CLArray(1).Replace("URL:", "") & "'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    If CLArray(1).Contains("URL:") Then
+                        html = html & "<pre class='h' title='Off-gopher resource'><a target='_blank' href='" & CLArray(1).Replace("URL:", "") & "'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    Else
+                        html = html & "<pre class='h' title='HTML Document'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    End If
                 ElseIf CLArray(0).StartsWith("0") Then
                     '0Caltrans California highway conditions	/calroads	gopher.floodgap.com	70
                     Dim text = CLArray(0).Substring(1)
@@ -128,12 +132,18 @@ Public Class Form1
                     html = html & "<pre class='7' title='Search'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("9") Then
                     html = html & "<pre class='9' title='Binary File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
-                ElseIf CLArray(0).StartsWith("5i") Then
+                ElseIf CLArray(0).StartsWith("5") Then
                     html = html & "<pre class='5' title='PC binary'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("4") Then
+                    html = html & "<pre class='4' title='HQX filer'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("6") Then
+                    html = html & "<pre class='6' title='UNIX uuencoded file'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("g") Then
                     html = html & "<pre class='I' title='GIF image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("I") Then
                     html = html & "<pre class='Im' title='Generic image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                ElseIf CLArray(0).StartsWith("s") Then
+                    html = html & "<pre class='s' title='Sound'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 Else
                     html = html & "<pre title='Unknown'>" & CurrentLine & "</pre>"
                 End If

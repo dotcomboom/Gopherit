@@ -76,6 +76,8 @@ Public Class Form1
         Do While (Not CurrentLine Is Nothing)
 
             Try
+                CurrentLine = CurrentLine.Replace("error.host	1", "")
+
                 Dim CLArray = CurrentLine.Split(vbTab)
 
                 If CLArray(0).StartsWith("i") Then
@@ -100,7 +102,7 @@ Public Class Form1
                     If port Is Nothing Then
                         port = 70
                     End If
-                    html = html & "<pre class='0' title='Text File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&txt=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='0' title='Text File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&txt=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("1") Then
                     Dim text = CLArray(0).Substring(1)
                     Dim path = CLArray(1)
@@ -116,17 +118,17 @@ Public Class Form1
                     If port Is Nothing Then
                         port = 70
                     End If
-                    html = html & "<pre class='1' title='Directory'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='1' title='Directory'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("7") Then
-                    html = html & "<pre class='7' title='Search'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='7' title='Search'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("9") Then
-                    html = html & "<pre class='9' title='Binary File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='9' title='Binary File'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("5i") Then
-                    html = html & "<pre class='5' title='PC binary'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='5' title='PC binary'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("g") Then
-                    html = html & "<pre class='I' title='GIF image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='I' title='GIF image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("I") Then
-                    html = html & "<pre class='Im' title='Generic image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
+                    html = html & "<pre class='Im' title='Generic image'><a href='about:blank?url=gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & "/" & CLArray(1) & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 Else
                     html = html & "<pre title='Unknown'>" & CurrentLine & "</pre>"
                 End If

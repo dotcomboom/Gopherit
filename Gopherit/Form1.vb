@@ -69,6 +69,27 @@ Public Class Form1
 
         Dim url = ComboBox1.Text
 
+
+        Dim slashsplit = url.Replace("gopher://", "").Split("/")
+        If slashsplit.Count > 2 Then
+            'test.test/9/nice.exe
+            'test.test
+            '9
+            'nice.exe
+            Dim binarytypes = {"h", "9", "5", "4", "6", "g", "I", "s"}
+            If binarytypes.Contains(slashsplit(1)) Then
+
+                If My.Settings.AskBeforeDownloading Then
+                    If MsgBox("Download file " & slashsplit.Last & " to " & My.Settings.DownloadDir & "\" & slashsplit.Last & "?", MsgBoxStyle.YesNo, "Download file") = MsgBoxResult.Yes Then
+                        JustDownload(url)
+                    End If
+                Else
+                    JustDownload(url)
+                End If
+
+                Exit Sub
+            End If
+        End If
         Me.UseWaitCursor = True
         Label1.Text = "Fetching"
         Label1.ForeColor = Color.YellowGreen

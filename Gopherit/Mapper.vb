@@ -30,8 +30,8 @@
         TextBox5.Enabled = True
         If textpathserverport.Contains(itemtype) Then
             If itemtype = "h" Then
-                TextBox3.Text = "(URL: http://example.com)"
-                Label1.Text = Label1.Text & vbNewLine & "2. Path on server OR '(URL: http://example.com)'" & vbNewLine & "3. Server" & vbNewLine & "4. Port"
+                TextBox3.Text = "URL: http://example.com"
+                Label1.Text = Label1.Text & vbNewLine & "2. Path on server OR 'URL: http://example.com'" & vbNewLine & "3. Server" & vbNewLine & "4. Port"
             Else
                 Label1.Text = Label1.Text & vbNewLine & "2. Path on server" & vbNewLine & "3. Server" & vbNewLine & "4. Port"
             End If

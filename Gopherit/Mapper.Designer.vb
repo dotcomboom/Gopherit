@@ -25,31 +25,36 @@ Partial Class Mapper
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Mapper))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SplitContainer1.Panel1.SuspendLayout()
+        Me.SplitContainer1.Panel2.SuspendLayout()
+        Me.SplitContainer1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TextBox1
         '
-        Me.TextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox1.AcceptsReturn = True
+        Me.TextBox1.AcceptsTab = True
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox1.Location = New System.Drawing.Point(0, 0)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(401, 434)
+        Me.TextBox1.Size = New System.Drawing.Size(384, 435)
         Me.TextBox1.TabIndex = 0
         '
         'GroupBox1
@@ -64,92 +69,117 @@ Partial Class Mapper
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 321)
+        Me.GroupBox1.Size = New System.Drawing.Size(210, 321)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Insert"
         '
-        'Panel2
-        '
-        Me.Panel2.Controls.Add(Me.GroupBox2)
-        Me.Panel2.Controls.Add(Me.GroupBox1)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Panel2.Location = New System.Drawing.Point(398, 0)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(200, 435)
-        Me.Panel2.TabIndex = 2
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"0 Text File", "1 Directory", "3 Error", "4 HQX filer", "5 PC binary", "6 UNIX uuencoded file", "7 Search Service", "8 Telnet session", "9 Binary file", "g GIF image", "s Sound", "I Generic image", "h HTML Document or Off-Gopher Resource"})
-        Me.ComboBox1.Location = New System.Drawing.Point(9, 25)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(179, 28)
-        Me.ComboBox1.TabIndex = 0
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(9, 59)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(179, 26)
-        Me.TextBox2.TabIndex = 2
-        '
-        'TextBox3
-        '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(9, 91)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(179, 26)
-        Me.TextBox3.TabIndex = 3
-        '
-        'TextBox4
-        '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(9, 123)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(179, 26)
-        Me.TextBox4.TabIndex = 4
-        '
-        'TextBox5
-        '
-        Me.TextBox5.Enabled = False
-        Me.TextBox5.Location = New System.Drawing.Point(9, 157)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(179, 26)
-        Me.TextBox5.TabIndex = 5
-        Me.TextBox5.Text = "70"
-        '
-        'Label1
-        '
-        Me.Label1.Location = New System.Drawing.Point(10, 190)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(178, 128)
-        Me.Label1.TabIndex = 6
-        Me.Label1.Text = "Select an item type."
-        '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.Enabled = False
-        Me.Button1.Location = New System.Drawing.Point(142, 282)
+        Me.Button1.Location = New System.Drawing.Point(152, 282)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(46, 33)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "+"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.Location = New System.Drawing.Point(10, 190)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(188, 128)
+        Me.Label1.TabIndex = 6
+        Me.Label1.Text = "Select an item type."
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox5.Enabled = False
+        Me.TextBox5.Location = New System.Drawing.Point(9, 157)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(189, 26)
+        Me.TextBox5.TabIndex = 5
+        Me.TextBox5.Text = "70"
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox4.Enabled = False
+        Me.TextBox4.Location = New System.Drawing.Point(9, 123)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(189, 26)
+        Me.TextBox4.TabIndex = 4
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox3.Enabled = False
+        Me.TextBox3.Location = New System.Drawing.Point(9, 91)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(189, 26)
+        Me.TextBox3.TabIndex = 3
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBox2.Enabled = False
+        Me.TextBox2.Location = New System.Drawing.Point(9, 59)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(189, 26)
+        Me.TextBox2.TabIndex = 2
+        '
+        'ComboBox1
+        '
+        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"0 Text File", "1 Directory", "3 Error", "4 HQX filer", "5 PC binary", "6 UNIX uuencoded file", "7 Search Service", "8 Telnet session", "9 Binary file", "g GIF image", "s Sound", "I Generic image", "h HTML Document or Off-Gopher Resource"})
+        Me.ComboBox1.Location = New System.Drawing.Point(9, 25)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(189, 28)
+        Me.ComboBox1.TabIndex = 0
+        '
+        'Panel2
+        '
+        Me.Panel2.Controls.Add(Me.GroupBox2)
+        Me.Panel2.Controls.Add(Me.GroupBox1)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(210, 435)
+        Me.Panel2.TabIndex = 2
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.Button3)
         Me.GroupBox2.Controls.Add(Me.Button2)
+        Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.GroupBox2.Location = New System.Drawing.Point(0, 321)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(200, 114)
+        Me.GroupBox2.Size = New System.Drawing.Size(210, 114)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "File"
+        '
+        'Button3
+        '
+        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button3.Location = New System.Drawing.Point(118, 25)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(77, 77)
+        Me.Button3.TabIndex = 1
+        Me.Button3.Text = "Save As"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -160,22 +190,29 @@ Partial Class Mapper
         Me.Button2.Text = "Open"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'SplitContainer1
         '
-        Me.Button3.Location = New System.Drawing.Point(108, 25)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(77, 77)
-        Me.Button3.TabIndex = 1
-        Me.Button3.Text = "Save As"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBox1)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Panel2)
+        Me.SplitContainer1.Size = New System.Drawing.Size(598, 435)
+        Me.SplitContainer1.SplitterDistance = 384
+        Me.SplitContainer1.TabIndex = 3
         '
         'Mapper
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(598, 435)
-        Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.SplitContainer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(620, 491)
         Me.Name = "Mapper"
@@ -184,8 +221,12 @@ Partial Class Mapper
         Me.GroupBox1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.ResumeLayout(False)
+        Me.SplitContainer1.Panel1.PerformLayout()
+        Me.SplitContainer1.Panel2.ResumeLayout(False)
+        CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SplitContainer1.ResumeLayout(False)
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -202,4 +243,5 @@ Partial Class Mapper
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents SplitContainer1 As SplitContainer
 End Class

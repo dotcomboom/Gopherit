@@ -186,7 +186,6 @@ Public Class Form1
         Me.UseWaitCursor = False
         Label1.Text = "Ready"
         Label1.ForeColor = Color.Green
-
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -272,9 +271,9 @@ Public Class Form1
                     JustDownload(dlurl)
                 End If
                 ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
-                    Go(sender, e)
-                Else
-                    ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
+                Go(sender, e)
+            Else
+                ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
                 Go(sender, e)
             End If
         End If

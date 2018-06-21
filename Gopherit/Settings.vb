@@ -16,6 +16,7 @@ Public Class Settings
             CheckBox1.Checked = False
         End If
         My.Settings.AskBeforeDownloading = CheckBox2.Checked
+        My.Settings.InterfaceBackColor = Button10.BackColor
         My.Settings.DownloadDir = TextBox2.Text
         My.Settings.PTFont = Button6.Font
         My.Settings.PTForeColor = Button7.BackColor
@@ -50,6 +51,7 @@ Public Class Settings
             Button4.Text = "Administrative privileges required"
             Button4.Enabled = False
         End If
+        BackColor = My.Settings.InterfaceBackColor
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
@@ -96,7 +98,7 @@ Public Class Settings
 
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click, Button10.Click
         Dim color As New ColorDialog
         color.Color = sender.BackColor
         If color.ShowDialog() = DialogResult.OK Then
@@ -110,5 +112,9 @@ Public Class Settings
         If font.ShowDialog() = DialogResult.OK Then
             Button6.Font = font.Font
         End If
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button11.Click
+        Button10.BackColor = SystemColors.Control
     End Sub
 End Class

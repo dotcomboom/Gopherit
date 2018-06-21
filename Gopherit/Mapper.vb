@@ -72,6 +72,7 @@
         TextBox1.Font = My.Settings.PTFont
         TextBox1.BackColor = My.Settings.PTBackColor
         TextBox1.ForeColor = My.Settings.PTForeColor
+        BackColor = My.Settings.InterfaceBackColor
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click

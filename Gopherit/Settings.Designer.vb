@@ -43,18 +43,22 @@ Partial Class Settings
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.Button11 = New System.Windows.Forms.Button()
+        Me.Button10 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.Button1.Location = New System.Drawing.Point(430, 473)
+        Me.Button1.Location = New System.Drawing.Point(578, 473)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(81, 45)
         Me.Button1.TabIndex = 10
@@ -104,7 +108,7 @@ Partial Class Settings
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button3.Location = New System.Drawing.Point(343, 473)
+        Me.Button3.Location = New System.Drawing.Point(491, 473)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(81, 45)
         Me.Button3.TabIndex = 9
@@ -224,9 +228,9 @@ Partial Class Settings
         '
         Me.Button8.BackColor = System.Drawing.Color.White
         Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Location = New System.Drawing.Point(100, 26)
+        Me.Button8.Location = New System.Drawing.Point(106, 26)
         Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(62, 53)
+        Me.Button8.Size = New System.Drawing.Size(53, 53)
         Me.Button8.TabIndex = 2
         Me.Button8.UseVisualStyleBackColor = False
         '
@@ -234,9 +238,9 @@ Partial Class Settings
         '
         Me.Button7.BackColor = System.Drawing.Color.Black
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button7.Location = New System.Drawing.Point(100, 80)
+        Me.Button7.Location = New System.Drawing.Point(106, 80)
         Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(62, 53)
+        Me.Button7.Size = New System.Drawing.Size(53, 53)
         Me.Button7.TabIndex = 1
         Me.Button7.UseVisualStyleBackColor = False
         '
@@ -258,11 +262,42 @@ Partial Class Settings
         Me.Button9.Text = "Reset All Settings"
         Me.Button9.UseVisualStyleBackColor = True
         '
+        'GroupBox6
+        '
+        Me.GroupBox6.Controls.Add(Me.Button11)
+        Me.GroupBox6.Controls.Add(Me.Button10)
+        Me.GroupBox6.Location = New System.Drawing.Point(517, 12)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(142, 155)
+        Me.GroupBox6.TabIndex = 3
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "Interface"
+        '
+        'Button11
+        '
+        Me.Button11.Location = New System.Drawing.Point(27, 88)
+        Me.Button11.Name = "Button11"
+        Me.Button11.Size = New System.Drawing.Size(94, 43)
+        Me.Button11.TabIndex = 4
+        Me.Button11.Text = "Default"
+        Me.Button11.UseVisualStyleBackColor = True
+        '
+        'Button10
+        '
+        Me.Button10.BackColor = System.Drawing.SystemColors.Control
+        Me.Button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button10.Location = New System.Drawing.Point(47, 29)
+        Me.Button10.Name = "Button10"
+        Me.Button10.Size = New System.Drawing.Size(53, 53)
+        Me.Button10.TabIndex = 3
+        Me.Button10.UseVisualStyleBackColor = False
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(523, 535)
+        Me.ClientSize = New System.Drawing.Size(671, 535)
+        Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.Button9)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox4)
@@ -285,6 +320,7 @@ Partial Class Settings
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -310,4 +346,7 @@ Partial Class Settings
     Friend WithEvents Button8 As Button
     Friend WithEvents Button7 As Button
     Friend WithEvents Button9 As Button
+    Friend WithEvents GroupBox6 As GroupBox
+    Friend WithEvents Button11 As Button
+    Friend WithEvents Button10 As Button
 End Class

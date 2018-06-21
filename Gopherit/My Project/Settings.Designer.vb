@@ -160,6 +160,18 @@ Namespace My
                 Me("PTFont") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Control")>  _
+        Public Property InterfaceBackColor() As Global.System.Drawing.Color
+            Get
+                Return CType(Me("InterfaceBackColor"),Global.System.Drawing.Color)
+            End Get
+            Set
+                Me("InterfaceBackColor") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

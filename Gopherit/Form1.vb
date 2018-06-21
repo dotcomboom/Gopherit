@@ -186,7 +186,7 @@ Public Class Form1
             CurrentLine = strReader.ReadLine 'Reading the line for the next iteration
         Loop
 
-        html = html & "</body></html>"
+        html = html & "<script>" & My.Settings.JavaScript & "</script></body></html>"
 
         Label1.Text = "Finishing"
         Refresh()

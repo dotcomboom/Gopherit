@@ -8,6 +8,7 @@ Public Class Settings
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         My.Settings.Stylesheet = TextBox1.Text
+        My.Settings.JavaScript = TextBox3.Text
         If CheckBox1.Checked Then
             My.Settings.Bookmarks.Clear()
             My.Settings.Bookmarks.Add("tilde.town/1/~dcb/gopherit")
@@ -37,6 +38,7 @@ Public Class Settings
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = My.Settings.Stylesheet
         TextBox2.Text = My.Settings.DownloadDir
+        TextBox3.Text = My.Settings.JavaScript
         Button6.Font = My.Settings.PTFont
         Button7.BackColor = My.Settings.PTForeColor
         Button8.BackColor = My.Settings.PTBackColor
@@ -116,5 +118,9 @@ Public Class Settings
 
     Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button11.Click
         Button10.BackColor = SystemColors.Control
+    End Sub
+
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
+        TextBox3.Clear()
     End Sub
 End Class

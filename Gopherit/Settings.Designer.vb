@@ -46,12 +46,20 @@ Partial Class Settings
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.Button11 = New System.Windows.Forms.Button()
         Me.Button10 = New System.Windows.Forms.Button()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.TabPage1 = New System.Windows.Forms.TabPage()
+        Me.TabPage2 = New System.Windows.Forms.TabPage()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.Button12 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPage1.SuspendLayout()
+        Me.TabPage2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -67,19 +75,18 @@ Partial Class Settings
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.TabControl1)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(309, 340)
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Stylesheet"
+        Me.GroupBox1.Text = "Styles and Scripts"
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(10, 293)
+        Me.Button2.Location = New System.Drawing.Point(91, 147)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(114, 41)
         Me.Button2.TabIndex = 2
@@ -88,21 +95,21 @@ Partial Class Settings
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(10, 85)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 6)
         Me.TextBox1.Multiline = True
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.TextBox1.Size = New System.Drawing.Size(293, 202)
+        Me.TextBox1.Size = New System.Drawing.Size(277, 135)
         Me.TextBox1.TabIndex = 1
         '
         'Label1
         '
         Me.Label1.Location = New System.Drawing.Point(6, 22)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(297, 70)
+        Me.Label1.Size = New System.Drawing.Size(297, 91)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "You can customize the stylesheet Gopherit uses when it renders gophermaps as HTML" &
-    "."
+    ", and add JavaScript code for extra functionality."
         '
         'Button3
         '
@@ -292,6 +299,58 @@ Partial Class Settings
         Me.Button10.TabIndex = 3
         Me.Button10.UseVisualStyleBackColor = False
         '
+        'TabControl1
+        '
+        Me.TabControl1.Controls.Add(Me.TabPage1)
+        Me.TabControl1.Controls.Add(Me.TabPage2)
+        Me.TabControl1.Location = New System.Drawing.Point(6, 104)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(297, 230)
+        Me.TabControl1.TabIndex = 3
+        '
+        'TabPage1
+        '
+        Me.TabPage1.Controls.Add(Me.TextBox1)
+        Me.TabPage1.Controls.Add(Me.Button2)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage1.Name = "TabPage1"
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage1.Size = New System.Drawing.Size(289, 197)
+        Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Text = "Stylesheet"
+        Me.TabPage1.UseVisualStyleBackColor = True
+        '
+        'TabPage2
+        '
+        Me.TabPage2.Controls.Add(Me.TextBox3)
+        Me.TabPage2.Controls.Add(Me.Button12)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
+        Me.TabPage2.Name = "TabPage2"
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage2.Size = New System.Drawing.Size(289, 197)
+        Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Text = "JavaScript"
+        Me.TabPage2.UseVisualStyleBackColor = True
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(6, 6)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
+        Me.TextBox3.Size = New System.Drawing.Size(277, 135)
+        Me.TextBox3.TabIndex = 3
+        '
+        'Button12
+        '
+        Me.Button12.Location = New System.Drawing.Point(91, 147)
+        Me.Button12.Name = "Button12"
+        Me.Button12.Size = New System.Drawing.Size(114, 41)
+        Me.Button12.TabIndex = 4
+        Me.Button12.Text = "Clear"
+        Me.Button12.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -313,7 +372,6 @@ Partial Class Settings
         Me.ShowInTaskbar = False
         Me.Text = "Settings"
         Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -321,6 +379,11 @@ Partial Class Settings
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPage1.ResumeLayout(False)
+        Me.TabPage1.PerformLayout()
+        Me.TabPage2.ResumeLayout(False)
+        Me.TabPage2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -349,4 +412,9 @@ Partial Class Settings
     Friend WithEvents GroupBox6 As GroupBox
     Friend WithEvents Button11 As Button
     Friend WithEvents Button10 As Button
+    Friend WithEvents TabControl1 As TabControl
+    Friend WithEvents TabPage1 As TabPage
+    Friend WithEvents TabPage2 As TabPage
+    Friend WithEvents TextBox3 As TextBox
+    Friend WithEvents Button12 As Button
 End Class

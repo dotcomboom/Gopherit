@@ -172,6 +172,18 @@ Namespace My
                 Me("InterfaceBackColor") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property JavaScript() As String
+            Get
+                Return CType(Me("JavaScript"),String)
+            End Get
+            Set
+                Me("JavaScript") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

@@ -1,5 +1,5 @@
 # gopherit
-VB.NET Gopher browser using curl as a backend
+VB.NET Gopher browser using curl as a backend<br />
 <img src="gopherit.png" />
 ## Prerequisites
 - Windows XP+ (probably, only tested with 10)

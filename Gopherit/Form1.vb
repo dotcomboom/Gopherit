@@ -204,6 +204,10 @@ Public Class Form1
             Button6.Enabled = False
         End If
 
+        TextBox2.SelectionStart = TextBox2.TextLength
+        TextBox2.SelectionStart = 0
+        TextBox2.DeselectAll()
+
         Me.UseWaitCursor = False
         Label1.Text = "Ready"
         Label1.ForeColor = Color.Green

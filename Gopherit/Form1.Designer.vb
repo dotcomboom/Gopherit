@@ -113,7 +113,7 @@ Partial Class Form1
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.TextBox2.Size = New System.Drawing.Size(741, 422)
-        Me.TextBox2.TabIndex = 0
+        Me.TextBox2.TabIndex = 1
         '
         'ComboBox1
         '

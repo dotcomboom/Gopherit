@@ -70,9 +70,9 @@ Public Class Form1
         Dim url = ComboBox1.Text
 
         Dim slashsplit = url.Replace("gopher://", "").Split("/")
-        If slashsplit.Count < 3 Then
+        If slashsplit.Count < 2 Then
             'gopher.floodgap.com
-            url = "gopher://" & url.Replace("gopher://", "").Replace("/", "") & "/1/"
+            url = "gopher://" & url.Replace("gopher://", "").Replace("/", "") & "/1"
         End If
 
         If slashsplit.Count > 2 Then

@@ -69,8 +69,12 @@ Public Class Form1
 
         Dim url = ComboBox1.Text
 
-
         Dim slashsplit = url.Replace("gopher://", "").Split("/")
+        If slashsplit.Count < 3 Then
+            'gopher.floodgap.com
+            url = "gopher://" & url.Replace("gopher://", "").Replace("/", "") & "/1/"
+        End If
+
         If slashsplit.Count > 2 Then
             'test.test/9/nice.exe
             'test.test
@@ -247,24 +251,17 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-        ComboBox1.Text = "gopher://gopherproject.org"
-        Go(sender, e)
-    End Sub
-
-    Private Sub Button5_Click(sender As Object, e As EventArgs)
-        ComboBox1.Text = "gopher://gopher.floodgap.com"
-        Go(sender, e)
-    End Sub
-
     Private Sub WebBrowser1_LocationChanged(sender As Object, e As EventArgs) Handles WebBrowser1.DocumentCompleted
         Console.WriteLine(WebBrowser1.Url.ToString)
         Dim type = ComboBox1.Text.Replace("gopher://", "").Split("/")(1)
-        If type = 0 Then
-            TabControl1.SelectTab(1)
-        Else
-            TabControl1.SelectTab(0)
-        End If
+        Try
+            If type = 0 Then
+                TabControl1.SelectTab(1)
+            Else
+                TabControl1.SelectTab(0)
+            End If
+        Catch ex As Exception
+        End Try
 
         If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").StartsWith("gopher://") Then
             If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&txt=yes") Then

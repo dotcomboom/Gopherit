@@ -71,9 +71,22 @@ Public Class Form1
 
         Dim slashsplit = url.Replace("gopher://", "").Split("/")
         If slashsplit.Count < 2 Then
+            'fixes domains to have an item type in url
             'gopher.floodgap.com
+            'we add /1 to that as 1 (directory) is the default item type for gopher urls
             url = "gopher://" & url.Replace("gopher://", "").Replace("/", "") & "/1"
         End If
+
+        Try
+            If slashsplit(1).Length > 1 Then
+                'fixes urls without item types
+                'gopher.floodgap.com/potato
+                'slashsplit(1) is potato
+                'and we uh replace that with "1/potato" as 1 (directory) is the default item type for gopher urls
+                url = "gopher://" & url.Replace("gopher://", "").Replace(slashsplit(1), "1/" & slashsplit(1))
+            End If
+        Catch ex As exception
+        End Try
 
         If slashsplit.Count > 2 Then
             'test.test/9/nice.exe

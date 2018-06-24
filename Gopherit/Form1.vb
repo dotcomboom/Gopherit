@@ -302,7 +302,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click, BackToolStripMenuItem.Click
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 2
         Dim current = ComboBox1.Items.Item(ComboBox1.Items.Count - 1)
         ComboBox1.Items.Remove(current)
@@ -358,7 +358,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub BookmarkThisPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkThisPageToolStripMenuItem.Click
+    Private Sub BookmarkThisPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkThisPageToolStripMenuItem.Click, BookmarkToolStripMenuItem.Click
         Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "").replace(":70", "").TrimEnd("/")
         ListView1.Items.Add(page)
         SaveBookmarks()
@@ -371,5 +371,23 @@ Public Class Form1
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim mpr As New Mapper
         mpr.show
+    End Sub
+
+    Private Sub ContextMenuStrip2_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip2.Opening
+        If ComboBox1.Items.Count > 0 Then
+            ContextMenuStrip2.Enabled = True
+            If ComboBox1.Items.Count > 1 Then
+                BackToolStripMenuItem.Enabled = True
+            Else
+                BackToolStripMenuItem.Enabled = False
+            End If
+        Else
+            ContextMenuStrip2.Enabled = False
+        End If
+    End Sub
+
+    Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
+        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
+        Go(sender, e)
     End Sub
 End Class

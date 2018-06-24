@@ -39,10 +39,16 @@ Partial Class Form1
         Me.RemoveBookmarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.ContextMenuStrip2 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.BookmarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SaveToFileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
+        Me.ContextMenuStrip2.SuspendLayout()
         Me.SuspendLayout()
         '
         'Button1
@@ -76,11 +82,12 @@ Partial Class Form1
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(747, 428)
         Me.TabPage1.TabIndex = 0
-        Me.TabPage1.Text = "Gophermap"
+        Me.TabPage1.Text = "Gopher Menu"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
         'WebBrowser1
         '
+        Me.WebBrowser1.ContextMenuStrip = Me.ContextMenuStrip2
         Me.WebBrowser1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.WebBrowser1.IsWebBrowserContextMenuEnabled = False
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
@@ -105,6 +112,7 @@ Partial Class Form1
         'TextBox2
         '
         Me.TextBox2.BackColor = System.Drawing.Color.White
+        Me.TextBox2.ContextMenuStrip = Me.ContextMenuStrip2
         Me.TextBox2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox2.Font = New System.Drawing.Font("Courier New", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBox2.Location = New System.Drawing.Point(3, 3)
@@ -153,10 +161,10 @@ Partial Class Form1
         Me.ListView1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ListView1.ContextMenuStrip = Me.ContextMenuStrip1
-        Me.ListView1.Location = New System.Drawing.Point(196, 53)
+        Me.ListView1.Location = New System.Drawing.Point(214, 53)
         Me.ListView1.MultiSelect = False
         Me.ListView1.Name = "ListView1"
-        Me.ListView1.Size = New System.Drawing.Size(472, 95)
+        Me.ListView1.Size = New System.Drawing.Size(454, 95)
         Me.ListView1.TabIndex = 4
         Me.ListView1.UseCompatibleStateImageBehavior = False
         Me.ListView1.View = System.Windows.Forms.View.List
@@ -166,19 +174,19 @@ Partial Class Form1
         Me.ContextMenuStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BookmarkThisPageToolStripMenuItem, Me.RemoveBookmarkToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(244, 64)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(236, 64)
         '
         'BookmarkThisPageToolStripMenuItem
         '
         Me.BookmarkThisPageToolStripMenuItem.Name = "BookmarkThisPageToolStripMenuItem"
-        Me.BookmarkThisPageToolStripMenuItem.Size = New System.Drawing.Size(243, 30)
-        Me.BookmarkThisPageToolStripMenuItem.Text = "Bookmark this page"
+        Me.BookmarkThisPageToolStripMenuItem.Size = New System.Drawing.Size(235, 30)
+        Me.BookmarkThisPageToolStripMenuItem.Text = "Add bookmark"
         '
         'RemoveBookmarkToolStripMenuItem
         '
         Me.RemoveBookmarkToolStripMenuItem.Enabled = False
         Me.RemoveBookmarkToolStripMenuItem.Name = "RemoveBookmarkToolStripMenuItem"
-        Me.RemoveBookmarkToolStripMenuItem.Size = New System.Drawing.Size(243, 30)
+        Me.RemoveBookmarkToolStripMenuItem.Size = New System.Drawing.Size(235, 30)
         Me.RemoveBookmarkToolStripMenuItem.Text = "Remove bookmark"
         '
         'Button2
@@ -200,6 +208,38 @@ Partial Class Form1
         Me.Button3.TabIndex = 8
         Me.Button3.Text = "Mapper"
         Me.Button3.UseVisualStyleBackColor = True
+        '
+        'ContextMenuStrip2
+        '
+        Me.ContextMenuStrip2.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.ContextMenuStrip2.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshToolStripMenuItem, Me.BackToolStripMenuItem, Me.BookmarkToolStripMenuItem, Me.SaveToFileToolStripMenuItem})
+        Me.ContextMenuStrip2.Name = "ContextMenuStrip2"
+        Me.ContextMenuStrip2.Size = New System.Drawing.Size(206, 124)
+        '
+        'RefreshToolStripMenuItem
+        '
+        Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(205, 30)
+        Me.RefreshToolStripMenuItem.Text = "Refresh"
+        '
+        'BackToolStripMenuItem
+        '
+        Me.BackToolStripMenuItem.Enabled = False
+        Me.BackToolStripMenuItem.Name = "BackToolStripMenuItem"
+        Me.BackToolStripMenuItem.Size = New System.Drawing.Size(205, 30)
+        Me.BackToolStripMenuItem.Text = "Back"
+        '
+        'BookmarkToolStripMenuItem
+        '
+        Me.BookmarkToolStripMenuItem.Name = "BookmarkToolStripMenuItem"
+        Me.BookmarkToolStripMenuItem.Size = New System.Drawing.Size(205, 30)
+        Me.BookmarkToolStripMenuItem.Text = "Add bookmark"
+        '
+        'SaveToFileToolStripMenuItem
+        '
+        Me.SaveToFileToolStripMenuItem.Name = "SaveToFileToolStripMenuItem"
+        Me.SaveToFileToolStripMenuItem.Size = New System.Drawing.Size(205, 30)
+        Me.SaveToFileToolStripMenuItem.Text = "Save to file"
         '
         'Form1
         '
@@ -223,6 +263,7 @@ Partial Class Form1
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.ContextMenuStrip1.ResumeLayout(False)
+        Me.ContextMenuStrip2.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -241,4 +282,9 @@ Partial Class Form1
     Friend WithEvents RemoveBookmarkToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
+    Friend WithEvents ContextMenuStrip2 As ContextMenuStrip
+    Friend WithEvents RefreshToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BackToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents BookmarkToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SaveToFileToolStripMenuItem As ToolStripMenuItem
 End Class

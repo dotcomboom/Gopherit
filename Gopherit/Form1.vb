@@ -390,4 +390,21 @@ Public Class Form1
         ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
         Go(sender, e)
     End Sub
+
+    Private Sub SaveToFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToFileToolStripMenuItem.Click
+        Dim url = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+        Dim ss = url.split("/")
+        Save.TextBox1.Text = url.Replace("/", "-").replace(":", "_").replace("?", "!")
+        If Not Save.TextBox1.Text.Contains(".txt") Then
+            Save.TextBox1.AppendText(".txt")
+        End If
+        Try
+            If ss(1) = "0" Then
+                Save.GroupBox1.Enabled = False
+            End If
+        Catch ex As Exception
+        End Try
+        Save.content = TextBox2.Text
+        Save.ShowDialog()
+    End Sub
 End Class

@@ -6,22 +6,22 @@ Public Class Settings
         TextBox1.Text = My.Settings.StyleDefault
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OkBtn.Click
         My.Settings.Stylesheet = TextBox1.Text
         My.Settings.JavaScript = TextBox3.Text
-        If CheckBox1.Checked Then
+        If ResetBookmarksChk.Checked Then
             My.Settings.Bookmarks.Clear()
             My.Settings.Bookmarks.Add("tilde.town/1/~dcb/gopherit")
             My.Settings.Bookmarks.Add("gopherproject.org/1")
             My.Settings.Bookmarks.Add("gopher.floodgap.com/1")
-            CheckBox1.Checked = False
+            ResetBookmarksChk.Checked = False
         End If
-        My.Settings.AskBeforeDownloading = CheckBox2.Checked
-        My.Settings.InterfaceBackColor = Button10.BackColor
-        My.Settings.DownloadDir = TextBox2.Text
-        My.Settings.PTFont = Button6.Font
-        My.Settings.PTForeColor = Button7.BackColor
-        My.Settings.PTBackColor = Button8.BackColor
+        My.Settings.AskBeforeDownloading = AskDownloadsChk.Checked
+        My.Settings.InterfaceBackColor = iColorBtn.BackColor
+        My.Settings.DownloadDir = DownloadLocationTxt.Text
+        My.Settings.PTFont = FontBtn.Font
+        My.Settings.PTForeColor = ForeBtn.BackColor
+        My.Settings.PTBackColor = BackBtn.BackColor
         If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
             Try
                 My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
@@ -37,30 +37,30 @@ Public Class Settings
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TextBox1.Text = My.Settings.Stylesheet
-        TextBox2.Text = My.Settings.DownloadDir
+        DownloadLocationTxt.Text = My.Settings.DownloadDir
         TextBox3.Text = My.Settings.JavaScript
-        Button6.Font = My.Settings.PTFont
-        Button7.BackColor = My.Settings.PTForeColor
-        Button8.BackColor = My.Settings.PTBackColor
-        CheckBox2.Checked = My.Settings.AskBeforeDownloading
+        FontBtn.Font = My.Settings.PTFont
+        ForeBtn.BackColor = My.Settings.PTForeColor
+        BackBtn.BackColor = My.Settings.PTBackColor
+        AskDownloadsChk.Checked = My.Settings.AskBeforeDownloading
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
         Dim isElevated As Boolean = principal.IsInRole(WindowsBuiltInRole.Administrator)
         If isElevated Then
-            Button4.Text = "Set as URL Handler"
-            Button4.Enabled = True
+            URLHandlerBtn.Text = "Set as URL Handler"
+            URLHandlerBtn.Enabled = True
         Else
-            Button4.Text = "Administrative privileges required"
-            Button4.Enabled = False
+            URLHandlerBtn.Text = "Administrative privileges required"
+            URLHandlerBtn.Enabled = False
         End If
         BackColor = My.Settings.InterfaceBackColor
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles CancelBtn.Click
         Close()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles URLHandlerBtn.Click
         If MsgBox("This will set " & Application.ExecutablePath & " as the URL handler for gopher:// links in the Windows Registry.", MsgBoxStyle.YesNo, "Confirm") = MsgBoxResult.Yes Then
             Dim gopher = Registry.ClassesRoot.CreateSubKey("gopher")
             gopher.SetValue("URL Protocol", "")
@@ -70,21 +70,21 @@ Public Class Settings
             Dim open = shell.CreateSubKey("open")
             Dim command = open.CreateSubKey("command")
             command.SetValue("", """" & Application.ExecutablePath & """" & " " & """%1""")
-            Button4.Text = "Done"
-            Button4.Enabled = False
+            URLHandlerBtn.Text = "Done"
+            URLHandlerBtn.Enabled = False
         End If
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles BrowseLocationBtn.Click
         Dim opendir As New FolderBrowserDialog
         opendir.Description = "Select the Downloads directory to use."
-        opendir.SelectedPath = TextBox2.Text
+        opendir.SelectedPath = DownloadLocationTxt.Text
         If opendir.ShowDialog = DialogResult.OK Then
-            TextBox2.Text = opendir.SelectedPath
+            DownloadLocationTxt.Text = opendir.SelectedPath
         End If
     End Sub
 
-    Private Sub ResetSettings(sender As Object, e As EventArgs) Handles Button9.Click
+    Private Sub ResetSettings(sender As Object, e As EventArgs) Handles ResetAllBtn.Click
         If MsgBox("Reset all settings? (This doesn't include the URL handler)", MsgBoxStyle.YesNo, "Initialize") = MsgBoxResult.Yes Then
             My.Settings.Reset()
             My.Settings.Stylesheet = My.Settings.StyleDefault
@@ -100,7 +100,7 @@ Public Class Settings
 
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click, Button8.Click, Button10.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles ForeBtn.Click, BackBtn.Click, iColorBtn.Click
         Dim color As New ColorDialog
         color.Color = sender.BackColor
         If color.ShowDialog() = DialogResult.OK Then
@@ -108,16 +108,16 @@ Public Class Settings
         End If
     End Sub
 
-    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles Button6.Click
+    Private Sub Button6_Click_1(sender As Object, e As EventArgs) Handles FontBtn.Click
         Dim font As New FontDialog
-        font.Font = Button6.Font
+        font.Font = FontBtn.Font
         If font.ShowDialog() = DialogResult.OK Then
-            Button6.Font = font.Font
+            FontBtn.Font = font.Font
         End If
     End Sub
 
-    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button11.Click
-        Button10.BackColor = SystemColors.Control
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles iResetBtn.Click
+        iColorBtn.BackColor = SystemColors.Control
     End Sub
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click

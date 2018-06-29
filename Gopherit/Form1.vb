@@ -7,7 +7,7 @@ Public Class Form1
     Private Function SaveBookmarks()
         My.Settings.Bookmarks.Clear()
         Try
-            For Each item In ListView1.Items
+            For Each item In BookmarksLsV.Items
                 My.Settings.Bookmarks.Add(item.text)
             Next
         Catch ex As Exception
@@ -17,9 +17,9 @@ Public Class Form1
     End Function
     Private Function LoadBookmarks()
         Try
-            ListView1.Items.Clear()
+            BookmarksLsV.Items.Clear()
             For Each item In My.Settings.Bookmarks
-                ListView1.Items.Add(item)
+                BookmarksLsV.Items.Add(item)
                 Refresh()
             Next
         Catch ex As Exception
@@ -59,15 +59,15 @@ Public Class Form1
         Return True
     End Function
 
-    Public Sub Go(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim qsplit = ComboBox1.Text.Split("?")
+    Public Sub Go(sender As Object, e As EventArgs) Handles GoBtn.Click
+        Dim qsplit = AddressCmb.Text.Split("?")
         If qsplit.Count > 1 Then
-            ComboBox1.Text = "gopher://" & qsplit(0).Replace("gopher://", "").Replace("//", "/") & "?" & String.Join("", qsplit.Skip(1))
+            AddressCmb.Text = "gopher://" & qsplit(0).Replace("gopher://", "").Replace("//", "/") & "?" & String.Join("", qsplit.Skip(1))
         Else
-            ComboBox1.Text = "gopher://" & ComboBox1.Text.Replace("gopher://", "").Replace("//", "/")
+            AddressCmb.Text = "gopher://" & AddressCmb.Text.Replace("gopher://", "").Replace("//", "/")
         End If
 
-        Dim url = ComboBox1.Text
+        Dim url = AddressCmb.Text
 
         Dim slashsplit = url.Replace("gopher://", "").Split("/")
         If slashsplit.Count < 2 Then
@@ -108,13 +108,13 @@ Public Class Form1
             End If
         End If
         Me.UseWaitCursor = True
-        Label1.Text = "Fetching"
-        Label1.ForeColor = Color.YellowGreen
+        StatusLbl.Text = "Fetching"
+        StatusLbl.ForeColor = Color.YellowGreen
         Refresh()
 
         TextBox2.Text = CurlFetch(url)
 
-        Label1.Text = "Parsing"
+        StatusLbl.Text = "Parsing"
         Refresh()
 
         Dim strReader As New IO.StringReader(TextBox2.Text)
@@ -193,20 +193,20 @@ Public Class Form1
 
         html = html & "<script>" & My.Settings.JavaScript & "</script></body></html>"
 
-        Label1.Text = "Finishing"
+        StatusLbl.Text = "Finishing"
         Refresh()
 
         WebBrowser1.DocumentText = html
 
-        If ComboBox1.Items.Contains(url) Then
-            ComboBox1.Items.Remove(url)
+        If AddressCmb.Items.Contains(url) Then
+            AddressCmb.Items.Remove(url)
         End If
-        ComboBox1.Items.Add(url)
-        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
-        If ComboBox1.Items.Count > 1 Then
-            Button6.Enabled = True
+        AddressCmb.Items.Add(url)
+        AddressCmb.SelectedIndex = AddressCmb.Items.Count - 1
+        If AddressCmb.Items.Count > 1 Then
+            BackBtn.Enabled = True
         Else
-            Button6.Enabled = False
+            BackBtn.Enabled = False
         End If
 
         TextBox2.SelectionStart = TextBox2.TextLength
@@ -214,8 +214,8 @@ Public Class Form1
         TextBox2.DeselectAll()
 
         Me.UseWaitCursor = False
-        Label1.Text = "Ready"
-        Label1.ForeColor = Color.Green
+        StatusLbl.Text = "Ready"
+        StatusLbl.ForeColor = Color.Green
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -258,7 +258,7 @@ Public Class Form1
 
         Dim args = Environment.GetCommandLineArgs()
         If args.Count > 1 Then
-            ComboBox1.Text = args(1)
+            AddressCmb.Text = args(1)
             Refresh()
             Go(sender, e)
         End If
@@ -266,22 +266,22 @@ Public Class Form1
 
     Private Sub WebBrowser1_LocationChanged(sender As Object, e As EventArgs) Handles WebBrowser1.DocumentCompleted
         Console.WriteLine(WebBrowser1.Url.ToString)
-        Dim type = ComboBox1.Text.Replace("gopher://", "").Split("/")(1)
+        Dim type = AddressCmb.Text.Replace("gopher://", "").Split("/")(1)
         Try
             If type = 0 Then
-                TabControl1.SelectTab(1)
+                TabCtl.SelectTab(1)
             Else
-                TabControl1.SelectTab(0)
+                TabCtl.SelectTab(0)
             End If
         Catch ex As Exception
         End Try
 
         If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").StartsWith("gopher://") Then
             If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&txt=yes") Then
-                ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&txt=yes", "")
+                AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&txt=yes", "")
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&search=yes") Then
-                ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&search=yes", "") & "?" & InputBox("Enter a query for the remote server to process.", "Query requested").Replace(" ", "%20")
+                AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&search=yes", "") & "?" & InputBox("Enter a query for the remote server to process.", "Query requested").Replace(" ", "%20")
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&dl=yes") Then
                 Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "")
@@ -293,24 +293,24 @@ Public Class Form1
                 Else
                     JustDownload(dlurl)
                 End If
-                ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
+                AddressCmb.SelectedIndex = AddressCmb.Items.Count - 1
                 Go(sender, e)
             Else
-                ComboBox1.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
+                AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "")
                 Go(sender, e)
             End If
         End If
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click, BackToolStripMenuItem.Click
-        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 2
-        Dim current = ComboBox1.Items.Item(ComboBox1.Items.Count - 1)
-        ComboBox1.Items.Remove(current)
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackBtn.Click, BackToolStripMenuItem.Click
+        AddressCmb.SelectedIndex = AddressCmb.Items.Count - 2
+        Dim current = AddressCmb.Items.Item(AddressCmb.Items.Count - 1)
+        AddressCmb.Items.Remove(current)
         'ComboBox1.Items.Insert(0, current)
         Go(sender, e)
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
         If Settings.ShowDialog() = DialogResult.OK Then
             LoadBookmarks()
             TextBox2.Font = My.Settings.PTFont
@@ -321,19 +321,19 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ComboBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles ComboBox1.KeyDown
+    Private Sub ComboBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles AddressCmb.KeyDown
         If e.KeyCode = Keys.Enter Then
             Go(sender, e)
         End If
     End Sub
 
-    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles ContextMenuStrip1.Opening
-        If ListView1.SelectedItems.Count = 1 Then
+    Private Sub ContextMenuStrip1_Opening(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles BookmarkCMS.Opening
+        If BookmarksLsV.SelectedItems.Count = 1 Then
             RemoveBookmarkToolStripMenuItem.Enabled = True
             RemoveBookmarkToolStripMenuItem.Text = "Remove bookmark"
         End If
-        If ComboBox1.Items.Count > 0 Then
-            Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+        If AddressCmb.Items.Count > 0 Then
+            Dim page = AddressCmb.Items.Item(AddressCmb.Items.Count - 1).replace("gopher://", "")
             BookmarkThisPageToolStripMenuItem.Enabled = True
             BookmarkThisPageToolStripMenuItem.Text = "Bookmark " & page
         Else
@@ -342,25 +342,25 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles ListView1.ItemActivate
-        If ListView1.SelectedItems.Count = 1 Then
-            ComboBox1.Text = ListView1.SelectedItems.Item(0).Text
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles BookmarksLsV.ItemActivate
+        If BookmarksLsV.SelectedItems.Count = 1 Then
+            AddressCmb.Text = BookmarksLsV.SelectedItems.Item(0).Text
             Go(sender, e)
         End If
-        ListView1.SelectedItems.Clear()
+        BookmarksLsV.SelectedItems.Clear()
     End Sub
 
     Private Sub RemoveBookmarkToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemoveBookmarkToolStripMenuItem.Click
         Try
-            ListView1.Items.Remove(ListView1.SelectedItems.Item(0))
+            BookmarksLsV.Items.Remove(BookmarksLsV.SelectedItems.Item(0))
             SaveBookmarks()
         Catch ex As Exception
         End Try
     End Sub
 
     Private Sub BookmarkThisPageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BookmarkThisPageToolStripMenuItem.Click, BookmarkToolStripMenuItem.Click
-        Dim page = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "").replace(":70", "").TrimEnd("/")
-        ListView1.Items.Add(page)
+        Dim page = AddressCmb.Items.Item(AddressCmb.Items.Count - 1).replace("gopher://", "").replace(":70", "").TrimEnd("/")
+        BookmarksLsV.Items.Add(page)
         SaveBookmarks()
     End Sub
 
@@ -368,31 +368,31 @@ Public Class Form1
         SaveBookmarks()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles MapperBtn.Click
         Dim mpr As New Mapper
         mpr.show
     End Sub
 
-    Private Sub ContextMenuStrip2_Opening(sender As Object, e As CancelEventArgs) Handles ContextMenuStrip2.Opening
-        If ComboBox1.Items.Count > 0 Then
-            ContextMenuStrip2.Enabled = True
-            If ComboBox1.Items.Count > 1 Then
+    Private Sub ContextMenuStrip2_Opening(sender As Object, e As CancelEventArgs) Handles BrowserCMS.Opening
+        If AddressCmb.Items.Count > 0 Then
+            BrowserCMS.Enabled = True
+            If AddressCmb.Items.Count > 1 Then
                 BackToolStripMenuItem.Enabled = True
             Else
                 BackToolStripMenuItem.Enabled = False
             End If
         Else
-            ContextMenuStrip2.Enabled = False
+            BrowserCMS.Enabled = False
         End If
     End Sub
 
     Private Sub RefreshToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshToolStripMenuItem.Click
-        ComboBox1.SelectedIndex = ComboBox1.Items.Count - 1
+        AddressCmb.SelectedIndex = AddressCmb.Items.Count - 1
         Go(sender, e)
     End Sub
 
     Private Sub SaveToFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToFileToolStripMenuItem.Click
-        Dim url = ComboBox1.Items.Item(ComboBox1.Items.Count - 1).replace("gopher://", "")
+        Dim url = AddressCmb.Items.Item(AddressCmb.Items.Count - 1).replace("gopher://", "")
         Dim ss = url.split("/")
         Save.TextBox1.Text = url.Replace("/", "-").replace(":", "_").replace("?", "!")
         If Not Save.TextBox1.Text.Contains(".txt") Then

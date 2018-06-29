@@ -107,6 +107,9 @@ Public Class Form1
                 Exit Sub
             End If
         End If
+
+        UrlLbl.Text = url
+
         Me.UseWaitCursor = True
         StatusLbl.Text = "Fetching"
         StatusLbl.ForeColor = Color.YellowGreen

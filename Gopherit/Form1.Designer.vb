@@ -37,18 +37,21 @@ Partial Class Form1
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.AddressCmb = New System.Windows.Forms.ComboBox()
         Me.BackBtn = New System.Windows.Forms.Button()
-        Me.StatusLbl = New System.Windows.Forms.Label()
         Me.BookmarksLsV = New System.Windows.Forms.ListView()
         Me.BookmarkCMS = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.BookmarkThisPageToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RemoveBookmarkToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsBtn = New System.Windows.Forms.Button()
         Me.MapperBtn = New System.Windows.Forms.Button()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.StatusLbl = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.UrlLbl = New System.Windows.Forms.ToolStripStatusLabel()
         Me.TabCtl.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.BrowserCMS.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.BookmarkCMS.SuspendLayout()
+        Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GoBtn
@@ -71,7 +74,7 @@ Partial Class Form1
         Me.TabCtl.Location = New System.Drawing.Point(11, 125)
         Me.TabCtl.Name = "TabCtl"
         Me.TabCtl.SelectedIndex = 0
-        Me.TabCtl.Size = New System.Drawing.Size(755, 461)
+        Me.TabCtl.Size = New System.Drawing.Size(755, 424)
         Me.TabCtl.TabIndex = 6
         '
         'TabPage1
@@ -80,7 +83,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(747, 428)
+        Me.TabPage1.Size = New System.Drawing.Size(747, 391)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Gopher Menu"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -93,7 +96,7 @@ Partial Class Form1
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(741, 422)
+        Me.WebBrowser1.Size = New System.Drawing.Size(741, 385)
         Me.WebBrowser1.TabIndex = 2
         Me.WebBrowser1.Url = New System.Uri("about:blank", System.UriKind.Absolute)
         Me.WebBrowser1.WebBrowserShortcutsEnabled = False
@@ -103,7 +106,7 @@ Partial Class Form1
         Me.BrowserCMS.ImageScalingSize = New System.Drawing.Size(24, 24)
         Me.BrowserCMS.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.RefreshToolStripMenuItem, Me.BackToolStripMenuItem, Me.BookmarkToolStripMenuItem, Me.SaveToFileToolStripMenuItem})
         Me.BrowserCMS.Name = "ContextMenuStrip2"
-        Me.BrowserCMS.Size = New System.Drawing.Size(206, 157)
+        Me.BrowserCMS.Size = New System.Drawing.Size(206, 124)
         '
         'RefreshToolStripMenuItem
         '
@@ -177,17 +180,6 @@ Partial Class Form1
         Me.BackBtn.Text = "<"
         Me.BackBtn.UseVisualStyleBackColor = True
         '
-        'StatusLbl
-        '
-        Me.StatusLbl.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StatusLbl.ForeColor = System.Drawing.Color.Green
-        Me.StatusLbl.Location = New System.Drawing.Point(12, 53)
-        Me.StatusLbl.Name = "StatusLbl"
-        Me.StatusLbl.Size = New System.Drawing.Size(178, 69)
-        Me.StatusLbl.TabIndex = 3
-        Me.StatusLbl.Text = "Ready"
-        Me.StatusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'BookmarksLsV
         '
         Me.BookmarksLsV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -241,15 +233,41 @@ Partial Class Form1
         Me.MapperBtn.Text = "Mapper"
         Me.MapperBtn.UseVisualStyleBackColor = True
         '
+        'StatusStrip1
+        '
+        Me.StatusStrip1.ImageScalingSize = New System.Drawing.Size(24, 24)
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.StatusLbl, Me.UrlLbl})
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 568)
+        Me.StatusStrip1.Name = "StatusStrip1"
+        Me.StatusStrip1.Size = New System.Drawing.Size(778, 30)
+        Me.StatusStrip1.TabIndex = 9
+        Me.StatusStrip1.Text = "StatusStrip1"
+        '
+        'StatusLbl
+        '
+        Me.StatusLbl.ForeColor = System.Drawing.Color.Green
+        Me.StatusLbl.Name = "StatusLbl"
+        Me.StatusLbl.Size = New System.Drawing.Size(60, 25)
+        Me.StatusLbl.Text = "Ready"
+        Me.StatusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'UrlLbl
+        '
+        Me.UrlLbl.Margin = New System.Windows.Forms.Padding(0, 3, 5, 2)
+        Me.UrlLbl.Name = "UrlLbl"
+        Me.UrlLbl.Size = New System.Drawing.Size(652, 25)
+        Me.UrlLbl.Spring = True
+        Me.UrlLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(778, 598)
+        Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.MapperBtn)
         Me.Controls.Add(Me.SettingsBtn)
         Me.Controls.Add(Me.BookmarksLsV)
-        Me.Controls.Add(Me.StatusLbl)
         Me.Controls.Add(Me.BackBtn)
         Me.Controls.Add(Me.AddressCmb)
         Me.Controls.Add(Me.TabCtl)
@@ -264,7 +282,10 @@ Partial Class Form1
         Me.TabPage2.ResumeLayout(False)
         Me.TabPage2.PerformLayout()
         Me.BookmarkCMS.ResumeLayout(False)
+        Me.StatusStrip1.ResumeLayout(False)
+        Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GoBtn As Button
@@ -275,7 +296,6 @@ Partial Class Form1
     Friend WithEvents WebBrowser1 As WebBrowser
     Friend WithEvents AddressCmb As ComboBox
     Friend WithEvents BackBtn As Button
-    Friend WithEvents StatusLbl As Label
     Friend WithEvents BookmarksLsV As ListView
     Friend WithEvents BookmarkCMS As ContextMenuStrip
     Friend WithEvents BookmarkThisPageToolStripMenuItem As ToolStripMenuItem
@@ -287,4 +307,7 @@ Partial Class Form1
     Friend WithEvents BackToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents BookmarkToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents SaveToFileToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents StatusStrip1 As StatusStrip
+    Friend WithEvents StatusLbl As ToolStripStatusLabel
+    Friend WithEvents UrlLbl As ToolStripStatusLabel
 End Class

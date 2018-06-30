@@ -37,6 +37,8 @@ Partial Class Settings
         Me.JavaClearBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
         Me.ResetBookmarksChk = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.URLHandlerBtn = New System.Windows.Forms.Button()
@@ -55,8 +57,6 @@ Partial Class Settings
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.iResetBtn = New System.Windows.Forms.Button()
         Me.iColorBtn = New System.Windows.Forms.Button()
-        Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SSTabCtl.SuspendLayout()
@@ -65,13 +65,13 @@ Partial Class Settings
         Me.TabPage2.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
-        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'OkBtn
@@ -181,10 +181,10 @@ Partial Class Settings
         'TabPage2
         '
         Me.TabPage2.Controls.Add(Me.TableLayoutPanel5)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 31)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(290, 193)
+        Me.TabPage2.Size = New System.Drawing.Size(289, 193)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "JavaScript"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -201,7 +201,7 @@ Partial Class Settings
         Me.TableLayoutPanel5.RowCount = 2
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(284, 187)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(283, 187)
         Me.TableLayoutPanel5.TabIndex = 5
         '
         'JavaTxt
@@ -211,7 +211,7 @@ Partial Class Settings
         Me.JavaTxt.Multiline = True
         Me.JavaTxt.Name = "JavaTxt"
         Me.JavaTxt.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.JavaTxt.Size = New System.Drawing.Size(278, 141)
+        Me.JavaTxt.Size = New System.Drawing.Size(277, 141)
         Me.JavaTxt.TabIndex = 3
         '
         'JavaClearBtn
@@ -220,7 +220,7 @@ Partial Class Settings
         Me.JavaClearBtn.Location = New System.Drawing.Point(100, 150)
         Me.JavaClearBtn.Margin = New System.Windows.Forms.Padding(100, 3, 100, 3)
         Me.JavaClearBtn.Name = "JavaClearBtn"
-        Me.JavaClearBtn.Size = New System.Drawing.Size(84, 34)
+        Me.JavaClearBtn.Size = New System.Drawing.Size(83, 34)
         Me.JavaClearBtn.TabIndex = 4
         Me.JavaClearBtn.Text = "Clear"
         Me.JavaClearBtn.UseVisualStyleBackColor = True
@@ -245,6 +245,29 @@ Partial Class Settings
         Me.GroupBox2.TabIndex = 3
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bookmarks"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.BookmarksHeight, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.ResetBookmarksChk, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 22)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(178, 34)
+        Me.TableLayoutPanel1.TabIndex = 13
+        '
+        'BookmarksHeight
+        '
+        Me.BookmarksHeight.Location = New System.Drawing.Point(92, 3)
+        Me.BookmarksHeight.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.BookmarksHeight.Name = "BookmarksHeight"
+        Me.BookmarksHeight.Size = New System.Drawing.Size(83, 26)
+        Me.BookmarksHeight.TabIndex = 13
         '
         'ResetBookmarksChk
         '
@@ -436,33 +459,10 @@ Partial Class Settings
         Me.iColorBtn.TabIndex = 3
         Me.iColorBtn.UseVisualStyleBackColor = False
         '
-        'BookmarksHeight
-        '
-        Me.BookmarksHeight.Location = New System.Drawing.Point(92, 3)
-        Me.BookmarksHeight.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.BookmarksHeight.Name = "BookmarksHeight"
-        Me.BookmarksHeight.Size = New System.Drawing.Size(83, 26)
-        Me.BookmarksHeight.TabIndex = 13
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.BookmarksHeight, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ResetBookmarksChk, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 22)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(178, 34)
-        Me.TableLayoutPanel1.TabIndex = 13
-        '
         'Settings
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(675, 538)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.ResetAllBtn)
@@ -473,9 +473,9 @@ Partial Class Settings
         Me.Controls.Add(Me.CancelBtn)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.OkBtn)
-        Me.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
+        Me.MaximumSize = New System.Drawing.Size(697, 594)
         Me.MinimizeBox = False
         Me.Name = "Settings"
         Me.ShowIcon = False
@@ -491,15 +491,15 @@ Partial Class Settings
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
-        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

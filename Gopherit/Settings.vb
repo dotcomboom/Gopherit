@@ -22,6 +22,7 @@ Public Class Settings
         My.Settings.PTFont = FontBtn.Font
         My.Settings.PTForeColor = ForeBtn.BackColor
         My.Settings.PTBackColor = BackBtn.BackColor
+        My.Settings.BookmarksHeight = BookmarksHeight.Value
         If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
             Try
                 My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
@@ -45,6 +46,7 @@ Public Class Settings
         StyleTxt.Font = My.Settings.PTFont
         JavaTxt.Font = My.Settings.PTFont
         AskDownloadsChk.Checked = My.Settings.AskBeforeDownloading
+        BookmarksHeight.Value = My.Settings.BookmarksHeight
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
         Dim isElevated As Boolean = principal.IsInRole(WindowsBuiltInRole.Administrator)

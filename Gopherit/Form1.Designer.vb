@@ -39,16 +39,16 @@ Partial Class Form1
         Me.TabCtl = New System.Windows.Forms.TabControl()
         Me.CoreLayout = New System.Windows.Forms.TableLayoutPanel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.StatusLbl = New System.Windows.Forms.ToolStripStatusLabel()
         Me.UrlLbl = New System.Windows.Forms.ToolStripStatusLabel()
         Me.MapperStatusBtn = New System.Windows.Forms.ToolStripSplitButton()
         Me.SettingsStatusBtn = New System.Windows.Forms.ToolStripSplitButton()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BookmarksLsV = New System.Windows.Forms.ListView()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.BackBtn = New System.Windows.Forms.Button()
         Me.AddressCmb = New System.Windows.Forms.ComboBox()
         Me.GoBtn = New System.Windows.Forms.Button()
-        Me.StatusLbl = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BookmarksLsV = New System.Windows.Forms.ListView()
         Me.BrowserCMS.SuspendLayout()
         Me.BookmarkCMS.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -56,8 +56,8 @@ Partial Class Form1
         Me.TabCtl.SuspendLayout()
         Me.CoreLayout.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'BrowserCMS
@@ -117,7 +117,7 @@ Partial Class Form1
         Me.TabPage2.Controls.Add(Me.TextBox2)
         Me.TabPage2.Location = New System.Drawing.Point(4, 30)
         Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(764, 390)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Plain text"
@@ -142,7 +142,7 @@ Partial Class Form1
         Me.TabPage1.Controls.Add(Me.WebBrowser1)
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
-        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(764, 391)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Gopher Menu"
@@ -206,6 +206,14 @@ Partial Class Form1
         Me.StatusStrip1.TabIndex = 13
         Me.StatusStrip1.Text = "StatusStrip1"
         '
+        'StatusLbl
+        '
+        Me.StatusLbl.ForeColor = System.Drawing.Color.Green
+        Me.StatusLbl.Name = "StatusLbl"
+        Me.StatusLbl.Size = New System.Drawing.Size(60, 27)
+        Me.StatusLbl.Text = "Ready"
+        Me.StatusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'UrlLbl
         '
         Me.UrlLbl.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
@@ -236,6 +244,33 @@ Partial Class Form1
         Me.SettingsStatusBtn.Name = "SettingsStatusBtn"
         Me.SettingsStatusBtn.Size = New System.Drawing.Size(81, 30)
         Me.SettingsStatusBtn.Text = "Settings"
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 1
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.BookmarksLsV, 0, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 40)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 96.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(772, 96)
+        Me.TableLayoutPanel2.TabIndex = 12
+        '
+        'BookmarksLsV
+        '
+        Me.BookmarksLsV.ContextMenuStrip = Me.BookmarkCMS
+        Me.BookmarksLsV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BookmarksLsV.Location = New System.Drawing.Point(3, 3)
+        Me.BookmarksLsV.MultiSelect = False
+        Me.BookmarksLsV.Name = "BookmarksLsV"
+        Me.BookmarksLsV.Size = New System.Drawing.Size(766, 90)
+        Me.BookmarksLsV.TabIndex = 4
+        Me.BookmarksLsV.UseCompatibleStateImageBehavior = False
+        Me.BookmarksLsV.View = System.Windows.Forms.View.List
         '
         'TableLayoutPanel1
         '
@@ -288,41 +323,6 @@ Partial Class Form1
         Me.GoBtn.Text = "Go"
         Me.GoBtn.UseVisualStyleBackColor = True
         '
-        'StatusLbl
-        '
-        Me.StatusLbl.ForeColor = System.Drawing.Color.Green
-        Me.StatusLbl.Name = "StatusLbl"
-        Me.StatusLbl.Size = New System.Drawing.Size(60, 27)
-        Me.StatusLbl.Text = "Ready"
-        Me.StatusLbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.BookmarksLsV, 0, 0)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 40)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 1
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(772, 96)
-        Me.TableLayoutPanel2.TabIndex = 12
-        '
-        'BookmarksLsV
-        '
-        Me.BookmarksLsV.ContextMenuStrip = Me.BookmarkCMS
-        Me.BookmarksLsV.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BookmarksLsV.Location = New System.Drawing.Point(3, 3)
-        Me.BookmarksLsV.MultiSelect = False
-        Me.BookmarksLsV.Name = "BookmarksLsV"
-        Me.BookmarksLsV.Size = New System.Drawing.Size(766, 90)
-        Me.BookmarksLsV.TabIndex = 4
-        Me.BookmarksLsV.UseCompatibleStateImageBehavior = False
-        Me.BookmarksLsV.View = System.Windows.Forms.View.List
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
@@ -332,7 +332,7 @@ Partial Class Form1
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(456, 292)
         Me.Name = "Form1"
-        Me.Padding = New System.Windows.Forms.Padding(3, 3, 3, 3)
+        Me.Padding = New System.Windows.Forms.Padding(3)
         Me.Text = "Gopherit"
         Me.BrowserCMS.ResumeLayout(False)
         Me.BookmarkCMS.ResumeLayout(False)
@@ -344,8 +344,8 @@ Partial Class Form1
         Me.CoreLayout.PerformLayout()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
-        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

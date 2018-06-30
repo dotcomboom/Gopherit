@@ -223,7 +223,6 @@ Public Class Form1
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "Gopherit (Release " & Application.ProductVersion(0) & ")"
-
         If My.Settings.Stylesheet = "" Then
             My.Settings.Stylesheet = My.Settings.StyleDefault
         End If
@@ -254,6 +253,7 @@ Public Class Form1
         TextBox2.BackColor = My.Settings.PTBackColor
         TextBox2.ForeColor = My.Settings.PTForeColor
         BackColor = My.Settings.InterfaceBackColor
+        CoreLayout.RowStyles.Item(CoreLayout.GetRow(BookmarksLsV) + 1).Height = My.Settings.BookmarksHeight
 
         LoadBookmarks()
 
@@ -313,8 +313,9 @@ Public Class Form1
         Go(sender, e)
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles  SettingsStatusBtn.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles SettingsStatusBtn.Click
         If Settings.ShowDialog() = DialogResult.OK Then
+            CoreLayout.RowStyles.Item(CoreLayout.GetRow(BookmarksLsV) + 1).Height = My.Settings.BookmarksHeight
             LoadBookmarks()
             TextBox2.Font = My.Settings.PTFont
             TextBox2.BackColor = My.Settings.PTBackColor
@@ -345,7 +346,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles BookmarksLsV.doubleclick
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles BookmarksLsV.DoubleClick
         If BookmarksLsV.SelectedItems.Count = 1 Then
             AddressCmb.Text = BookmarksLsV.SelectedItems.Item(0).Text
             Go(sender, e)
@@ -371,7 +372,7 @@ Public Class Form1
         SaveBookmarks()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles  MapperStatusBtn.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles MapperStatusBtn.Click
         Dim mpr As New Mapper
         mpr.Show()
     End Sub

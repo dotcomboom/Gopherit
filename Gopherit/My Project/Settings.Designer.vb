@@ -184,6 +184,18 @@ Namespace My
                 Me("JavaScript") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("64")>  _
+        Public Property BookmarksHeight() As Integer
+            Get
+                Return CType(Me("BookmarksHeight"),Integer)
+            End Get
+            Set
+                Me("BookmarksHeight") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

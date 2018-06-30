@@ -36,9 +36,6 @@ Partial Class Settings
         Me.JavaTxt = New System.Windows.Forms.TextBox()
         Me.JavaClearBtn = New System.Windows.Forms.Button()
         Me.CancelBtn = New System.Windows.Forms.Button()
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
         Me.ResetBookmarksChk = New System.Windows.Forms.CheckBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.URLHandlerBtn = New System.Windows.Forms.Button()
@@ -57,6 +54,10 @@ Partial Class Settings
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.iResetBtn = New System.Windows.Forms.Button()
         Me.iColorBtn = New System.Windows.Forms.Button()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SSTabCtl.SuspendLayout()
@@ -64,14 +65,13 @@ Partial Class Settings
         Me.TableLayoutPanel4.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
-        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'OkBtn
@@ -236,54 +236,21 @@ Partial Class Settings
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.TableLayoutPanel1)
-        Me.GroupBox2.Location = New System.Drawing.Point(327, 12)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(184, 59)
-        Me.GroupBox2.TabIndex = 3
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Bookmarks"
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.BookmarksHeight, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.ResetBookmarksChk, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(3, 22)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(178, 34)
-        Me.TableLayoutPanel1.TabIndex = 13
-        '
-        'BookmarksHeight
-        '
-        Me.BookmarksHeight.Location = New System.Drawing.Point(92, 3)
-        Me.BookmarksHeight.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
-        Me.BookmarksHeight.Name = "BookmarksHeight"
-        Me.BookmarksHeight.Size = New System.Drawing.Size(83, 26)
-        Me.BookmarksHeight.TabIndex = 13
-        '
         'ResetBookmarksChk
         '
         Me.ResetBookmarksChk.AutoSize = True
-        Me.ResetBookmarksChk.Location = New System.Drawing.Point(3, 3)
+        Me.ResetBookmarksChk.Location = New System.Drawing.Point(10, 25)
         Me.ResetBookmarksChk.Name = "ResetBookmarksChk"
-        Me.ResetBookmarksChk.Size = New System.Drawing.Size(78, 24)
+        Me.ResetBookmarksChk.Size = New System.Drawing.Size(162, 24)
         Me.ResetBookmarksChk.TabIndex = 0
-        Me.ResetBookmarksChk.Text = "Reset"
+        Me.ResetBookmarksChk.Text = "Reset Bookmarks"
         Me.ResetBookmarksChk.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.URLHandlerBtn)
         Me.GroupBox3.Controls.Add(Me.HandleGuideLbl)
-        Me.GroupBox3.Location = New System.Drawing.Point(327, 77)
+        Me.GroupBox3.Location = New System.Drawing.Point(327, 122)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(184, 184)
         Me.GroupBox3.TabIndex = 4
@@ -361,7 +328,7 @@ Partial Class Settings
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.TableLayoutPanel2)
-        Me.GroupBox5.Location = New System.Drawing.Point(327, 267)
+        Me.GroupBox5.Location = New System.Drawing.Point(327, 312)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(168, 139)
         Me.GroupBox5.TabIndex = 4
@@ -459,11 +426,49 @@ Partial Class Settings
         Me.iColorBtn.TabIndex = 3
         Me.iColorBtn.UseVisualStyleBackColor = False
         '
+        'GroupBox7
+        '
+        Me.GroupBox7.Location = New System.Drawing.Point(518, 174)
+        Me.GroupBox7.Name = "GroupBox7"
+        Me.GroupBox7.Size = New System.Drawing.Size(141, 141)
+        Me.GroupBox7.TabIndex = 13
+        Me.GroupBox7.TabStop = False
+        Me.GroupBox7.Text = "Search"
+        '
+        'BookmarksHeight
+        '
+        Me.BookmarksHeight.Location = New System.Drawing.Point(70, 60)
+        Me.BookmarksHeight.Maximum = New Decimal(New Integer() {255, 0, 0, 0})
+        Me.BookmarksHeight.Name = "BookmarksHeight"
+        Me.BookmarksHeight.Size = New System.Drawing.Size(83, 26)
+        Me.BookmarksHeight.TabIndex = 15
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 62)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(60, 20)
+        Me.Label1.TabIndex = 16
+        Me.Label1.Text = "Height:"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.BookmarksHeight)
+        Me.GroupBox2.Controls.Add(Me.ResetBookmarksChk)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Location = New System.Drawing.Point(327, 12)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(184, 104)
+        Me.GroupBox2.TabIndex = 3
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Bookmarks"
+        '
         'Settings
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
         Me.ClientSize = New System.Drawing.Size(675, 538)
+        Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.ResetAllBtn)
         Me.Controls.Add(Me.GroupBox5)
@@ -490,16 +495,15 @@ Partial Class Settings
         Me.TabPage2.ResumeLayout(False)
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.PerformLayout()
-        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
+        CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -510,7 +514,6 @@ Partial Class Settings
     Friend WithEvents StyleTxt As TextBox
     Friend WithEvents SSGuideLbl As Label
     Friend WithEvents CancelBtn As Button
-    Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents ResetBookmarksChk As CheckBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents URLHandlerBtn As Button
@@ -537,6 +540,8 @@ Partial Class Settings
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents Label3 As Label
     Friend WithEvents DownloadLocationBtn As Button
+    Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents BookmarksHeight As NumericUpDown
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label1 As Label
+    Friend WithEvents GroupBox2 As GroupBox
 End Class

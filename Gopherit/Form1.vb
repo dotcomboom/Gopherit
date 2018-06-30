@@ -85,7 +85,7 @@ Public Class Form1
                 'and we uh replace that with "1/potato" as 1 (directory) is the default item type for gopher urls
                 url = "gopher://" & url.Replace("gopher://", "").Replace(slashsplit(1), "1/" & slashsplit(1))
             End If
-        Catch ex As exception
+        Catch ex As Exception
         End Try
 
         If slashsplit.Count > 2 Then
@@ -305,7 +305,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackBtn.Click, BackToolStripMenuItem.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click
         AddressCmb.SelectedIndex = AddressCmb.Items.Count - 2
         Dim current = AddressCmb.Items.Item(AddressCmb.Items.Count - 1)
         AddressCmb.Items.Remove(current)
@@ -345,7 +345,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles BookmarksLsV.ItemActivate
+    Private Sub ListView1_DoubleClick(sender As Object, e As EventArgs) Handles BookmarksLsV.doubleclick
         If BookmarksLsV.SelectedItems.Count = 1 Then
             AddressCmb.Text = BookmarksLsV.SelectedItems.Item(0).Text
             Go(sender, e)
@@ -373,7 +373,7 @@ Public Class Form1
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles MapperBtn.Click
         Dim mpr As New Mapper
-        mpr.show
+        mpr.Show()
     End Sub
 
     Private Sub ContextMenuStrip2_Opening(sender As Object, e As CancelEventArgs) Handles BrowserCMS.Opening

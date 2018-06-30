@@ -305,7 +305,7 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click, BackBtn.Click
         AddressCmb.SelectedIndex = AddressCmb.Items.Count - 2
         Dim current = AddressCmb.Items.Item(AddressCmb.Items.Count - 1)
         AddressCmb.Items.Remove(current)

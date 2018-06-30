@@ -46,20 +46,24 @@ Partial Class Form1
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.StatusLbl = New System.Windows.Forms.ToolStripStatusLabel()
         Me.UrlLbl = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TabCtl.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.BrowserCMS.SuspendLayout()
         Me.TabPage2.SuspendLayout()
         Me.BookmarkCMS.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'GoBtn
         '
         Me.GoBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GoBtn.Location = New System.Drawing.Point(697, 12)
+        Me.GoBtn.Location = New System.Drawing.Point(694, 3)
         Me.GoBtn.Name = "GoBtn"
-        Me.GoBtn.Size = New System.Drawing.Size(69, 35)
+        Me.GoBtn.Size = New System.Drawing.Size(58, 29)
         Me.GoBtn.TabIndex = 2
         Me.GoBtn.Text = "Go"
         Me.GoBtn.UseVisualStyleBackColor = True
@@ -71,10 +75,10 @@ Partial Class Form1
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TabCtl.Controls.Add(Me.TabPage1)
         Me.TabCtl.Controls.Add(Me.TabPage2)
-        Me.TabCtl.Location = New System.Drawing.Point(11, 125)
+        Me.TabCtl.Location = New System.Drawing.Point(11, 154)
         Me.TabCtl.Name = "TabCtl"
         Me.TabCtl.SelectedIndex = 0
-        Me.TabCtl.Size = New System.Drawing.Size(755, 424)
+        Me.TabCtl.Size = New System.Drawing.Size(755, 411)
         Me.TabCtl.TabIndex = 6
         '
         'TabPage1
@@ -83,7 +87,7 @@ Partial Class Form1
         Me.TabPage1.Location = New System.Drawing.Point(4, 29)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(747, 391)
+        Me.TabPage1.Size = New System.Drawing.Size(747, 378)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Gopher Menu"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -96,7 +100,7 @@ Partial Class Form1
         Me.WebBrowser1.Location = New System.Drawing.Point(3, 3)
         Me.WebBrowser1.MinimumSize = New System.Drawing.Size(20, 20)
         Me.WebBrowser1.Name = "WebBrowser1"
-        Me.WebBrowser1.Size = New System.Drawing.Size(741, 385)
+        Me.WebBrowser1.Size = New System.Drawing.Size(741, 372)
         Me.WebBrowser1.TabIndex = 2
         Me.WebBrowser1.Url = New System.Uri("about:blank", System.UriKind.Absolute)
         Me.WebBrowser1.WebBrowserShortcutsEnabled = False
@@ -139,7 +143,7 @@ Partial Class Form1
         Me.TabPage2.Location = New System.Drawing.Point(4, 29)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(747, 428)
+        Me.TabPage2.Size = New System.Drawing.Size(747, 378)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Plain text"
         Me.TabPage2.UseVisualStyleBackColor = True
@@ -155,40 +159,40 @@ Partial Class Form1
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.ReadOnly = True
         Me.TextBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.TextBox2.Size = New System.Drawing.Size(741, 422)
+        Me.TextBox2.Size = New System.Drawing.Size(741, 372)
         Me.TextBox2.TabIndex = 1
         '
         'AddressCmb
         '
-        Me.AddressCmb.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.AddressCmb.Dock = System.Windows.Forms.DockStyle.Fill
         Me.AddressCmb.FormattingEnabled = True
-        Me.AddressCmb.Location = New System.Drawing.Point(63, 16)
+        Me.AddressCmb.Location = New System.Drawing.Point(67, 3)
         Me.AddressCmb.Name = "AddressCmb"
-        Me.AddressCmb.Size = New System.Drawing.Size(628, 28)
+        Me.AddressCmb.Size = New System.Drawing.Size(621, 28)
         Me.AddressCmb.TabIndex = 1
         Me.AddressCmb.Text = "gopher://tilde.town/1/~dcb/gopherit"
         '
         'BackBtn
         '
+        Me.BackBtn.Dock = System.Windows.Forms.DockStyle.Fill
         Me.BackBtn.Enabled = False
         Me.BackBtn.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BackBtn.Location = New System.Drawing.Point(12, 12)
+        Me.BackBtn.Location = New System.Drawing.Point(3, 3)
         Me.BackBtn.Name = "BackBtn"
-        Me.BackBtn.Size = New System.Drawing.Size(45, 35)
+        Me.BackBtn.Size = New System.Drawing.Size(58, 29)
         Me.BackBtn.TabIndex = 0
         Me.BackBtn.Text = "<"
         Me.BackBtn.UseVisualStyleBackColor = True
         '
         'BookmarksLsV
         '
-        Me.BookmarksLsV.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BookmarksLsV.ContextMenuStrip = Me.BookmarkCMS
-        Me.BookmarksLsV.Location = New System.Drawing.Point(214, 53)
+        Me.BookmarksLsV.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.BookmarksLsV.Location = New System.Drawing.Point(3, 3)
         Me.BookmarksLsV.MultiSelect = False
         Me.BookmarksLsV.Name = "BookmarksLsV"
-        Me.BookmarksLsV.Size = New System.Drawing.Size(454, 95)
+        Me.TableLayoutPanel2.SetRowSpan(Me.BookmarksLsV, 2)
+        Me.BookmarksLsV.Size = New System.Drawing.Size(649, 92)
         Me.BookmarksLsV.TabIndex = 4
         Me.BookmarksLsV.UseCompatibleStateImageBehavior = False
         Me.BookmarksLsV.View = System.Windows.Forms.View.List
@@ -215,20 +219,20 @@ Partial Class Form1
         '
         'SettingsBtn
         '
-        Me.SettingsBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.SettingsBtn.Location = New System.Drawing.Point(674, 53)
+        Me.SettingsBtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SettingsBtn.Location = New System.Drawing.Point(658, 3)
         Me.SettingsBtn.Name = "SettingsBtn"
-        Me.SettingsBtn.Size = New System.Drawing.Size(92, 49)
+        Me.SettingsBtn.Size = New System.Drawing.Size(94, 43)
         Me.SettingsBtn.TabIndex = 7
         Me.SettingsBtn.Text = "Settings"
         Me.SettingsBtn.UseVisualStyleBackColor = True
         '
         'MapperBtn
         '
-        Me.MapperBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.MapperBtn.Location = New System.Drawing.Point(674, 108)
+        Me.MapperBtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.MapperBtn.Location = New System.Drawing.Point(658, 52)
         Me.MapperBtn.Name = "MapperBtn"
-        Me.MapperBtn.Size = New System.Drawing.Size(92, 40)
+        Me.MapperBtn.Size = New System.Drawing.Size(94, 43)
         Me.MapperBtn.TabIndex = 8
         Me.MapperBtn.Text = "Mapper"
         Me.MapperBtn.UseVisualStyleBackColor = True
@@ -255,23 +259,56 @@ Partial Class Form1
         '
         Me.UrlLbl.Margin = New System.Windows.Forms.Padding(0, 3, 5, 2)
         Me.UrlLbl.Name = "UrlLbl"
-        Me.UrlLbl.Size = New System.Drawing.Size(652, 25)
+        Me.UrlLbl.Size = New System.Drawing.Size(698, 25)
         Me.UrlLbl.Spring = True
         Me.UrlLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.BackBtn, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.AddressCmb, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.GoBtn, 2, 0)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(11, 12)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 1
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(755, 35)
+        Me.TableLayoutPanel1.TabIndex = 10
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.BookmarksLsV, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.SettingsBtn, 1, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.MapperBtn, 1, 1)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(11, 50)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(755, 98)
+        Me.TableLayoutPanel2.TabIndex = 11
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(778, 598)
+        Me.Controls.Add(Me.TableLayoutPanel2)
+        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.MapperBtn)
-        Me.Controls.Add(Me.SettingsBtn)
-        Me.Controls.Add(Me.BookmarksLsV)
-        Me.Controls.Add(Me.BackBtn)
-        Me.Controls.Add(Me.AddressCmb)
         Me.Controls.Add(Me.TabCtl)
-        Me.Controls.Add(Me.GoBtn)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(456, 292)
         Me.Name = "Form1"
@@ -284,6 +321,8 @@ Partial Class Form1
         Me.BookmarkCMS.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel2.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -310,4 +349,6 @@ Partial Class Form1
     Friend WithEvents StatusStrip1 As StatusStrip
     Friend WithEvents StatusLbl As ToolStripStatusLabel
     Friend WithEvents UrlLbl As ToolStripStatusLabel
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 End Class

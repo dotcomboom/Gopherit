@@ -2,13 +2,13 @@
 Imports Microsoft.Win32
 
 Public Class Settings
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        TextBox1.Text = My.Settings.StyleDefault
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles StyleResetBtn.Click
+        StyleTxt.Text = My.Settings.StyleDefault
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles OkBtn.Click
-        My.Settings.Stylesheet = TextBox1.Text
-        My.Settings.JavaScript = TextBox3.Text
+        My.Settings.Stylesheet = StyleTxt.Text
+        My.Settings.JavaScript = JavaTxt.Text
         If ResetBookmarksChk.Checked Then
             My.Settings.Bookmarks.Clear()
             My.Settings.Bookmarks.Add("tilde.town/1/~dcb/gopherit")
@@ -36,12 +36,14 @@ Public Class Settings
     End Sub
 
     Private Sub Settings_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TextBox1.Text = My.Settings.Stylesheet
+        StyleTxt.Text = My.Settings.Stylesheet
         DownloadLocationTxt.Text = My.Settings.DownloadDir
-        TextBox3.Text = My.Settings.JavaScript
+        JavaTxt.Text = My.Settings.JavaScript
         FontBtn.Font = My.Settings.PTFont
         ForeBtn.BackColor = My.Settings.PTForeColor
         BackBtn.BackColor = My.Settings.PTBackColor
+        StyleTxt.Font = My.Settings.PTFont
+        JavaTxt.Font = My.Settings.PTFont
         AskDownloadsChk.Checked = My.Settings.AskBeforeDownloading
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
@@ -75,7 +77,7 @@ Public Class Settings
         End If
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles BrowseLocationBtn.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles DownloadLocationBtn.Click
         Dim opendir As New FolderBrowserDialog
         opendir.Description = "Select the Downloads directory to use."
         opendir.SelectedPath = DownloadLocationTxt.Text
@@ -120,7 +122,7 @@ Public Class Settings
         iColorBtn.BackColor = SystemColors.Control
     End Sub
 
-    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles Button12.Click
-        TextBox3.Clear()
+    Private Sub Button12_Click(sender As Object, e As EventArgs) Handles JavaClearBtn.Click
+        JavaTxt.Clear()
     End Sub
 End Class

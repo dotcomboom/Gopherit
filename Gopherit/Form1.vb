@@ -313,7 +313,7 @@ Public Class Form1
         Go(sender, e)
     End Sub
 
-    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles  SettingsStatusBtn.Click
         If Settings.ShowDialog() = DialogResult.OK Then
             LoadBookmarks()
             TextBox2.Font = My.Settings.PTFont
@@ -371,7 +371,7 @@ Public Class Form1
         SaveBookmarks()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles MapperBtn.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles  MapperStatusBtn.Click
         Dim mpr As New Mapper
         mpr.Show()
     End Sub

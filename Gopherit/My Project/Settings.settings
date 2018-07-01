@@ -109,5 +109,11 @@ pre {
     <Setting Name="BookmarksHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">64</Value>
     </Setting>
+    <Setting Name="SearchService" Type="System.String" Scope="User">
+      <Value Profile="(Default)">gopher://gopher.floodgap.com:70/7/v2/vs</Value>
+    </Setting>
+    <Setting Name="SearchBarEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

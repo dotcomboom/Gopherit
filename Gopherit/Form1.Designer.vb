@@ -49,8 +49,8 @@ Partial Class Form1
         Me.BackBtn = New System.Windows.Forms.Button()
         Me.AddressCmb = New System.Windows.Forms.ComboBox()
         Me.GoBtn = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.SearchTxt = New System.Windows.Forms.TextBox()
+        Me.SearchBtn = New System.Windows.Forms.Button()
         Me.BrowserCMS.SuspendLayout()
         Me.BookmarkCMS.SuspendLayout()
         Me.TabPage2.SuspendLayout()
@@ -280,13 +280,13 @@ Partial Class Form1
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.BackBtn, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.AddressCmb, 1, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.GoBtn, 2, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.TextBox1, 3, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 4, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.SearchTxt, 3, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.SearchBtn, 4, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
@@ -314,37 +314,37 @@ Partial Class Form1
         Me.AddressCmb.FormattingEnabled = True
         Me.AddressCmb.Location = New System.Drawing.Point(67, 3)
         Me.AddressCmb.Name = "AddressCmb"
-        Me.AddressCmb.Size = New System.Drawing.Size(342, 28)
+        Me.AddressCmb.Size = New System.Drawing.Size(424, 28)
         Me.AddressCmb.TabIndex = 1
         Me.AddressCmb.Text = "gopher://tilde.town/1/~dcb/gopherit"
         '
         'GoBtn
         '
         Me.GoBtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.GoBtn.Location = New System.Drawing.Point(415, 3)
+        Me.GoBtn.Location = New System.Drawing.Point(497, 3)
         Me.GoBtn.Name = "GoBtn"
         Me.GoBtn.Size = New System.Drawing.Size(58, 34)
         Me.GoBtn.TabIndex = 2
         Me.GoBtn.Text = "Go"
         Me.GoBtn.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'SearchTxt
         '
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Location = New System.Drawing.Point(479, 3)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(194, 26)
-        Me.TextBox1.TabIndex = 3
+        Me.SearchTxt.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SearchTxt.Location = New System.Drawing.Point(561, 3)
+        Me.SearchTxt.Name = "SearchTxt"
+        Me.SearchTxt.Size = New System.Drawing.Size(144, 26)
+        Me.SearchTxt.TabIndex = 3
         '
-        'Button1
+        'SearchBtn
         '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(679, 3)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(90, 34)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Search"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.SearchBtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SearchBtn.Location = New System.Drawing.Point(711, 3)
+        Me.SearchBtn.Name = "SearchBtn"
+        Me.SearchBtn.Size = New System.Drawing.Size(58, 34)
+        Me.SearchBtn.TabIndex = 4
+        Me.SearchBtn.Text = "Search"
+        Me.SearchBtn.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -398,6 +398,6 @@ Partial Class Form1
     Friend WithEvents StatusLbl As ToolStripStatusLabel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents BookmarksLsV As ListView
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents Button1 As Button
+    Friend WithEvents SearchTxt As TextBox
+    Friend WithEvents SearchBtn As Button
 End Class

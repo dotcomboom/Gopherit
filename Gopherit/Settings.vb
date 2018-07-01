@@ -23,6 +23,8 @@ Public Class Settings
         My.Settings.PTForeColor = ForeBtn.BackColor
         My.Settings.PTBackColor = BackBtn.BackColor
         My.Settings.BookmarksHeight = BookmarksHeight.Value
+        My.Settings.SearchBarEnabled = SearchBarChk.Checked
+        My.Settings.SearchService = SearchURLTxt.Text
         If Not My.Computer.FileSystem.DirectoryExists(My.Settings.DownloadDir) Then
             Try
                 My.Computer.FileSystem.CreateDirectory(My.Settings.DownloadDir)
@@ -47,6 +49,8 @@ Public Class Settings
         JavaTxt.Font = My.Settings.PTFont
         AskDownloadsChk.Checked = My.Settings.AskBeforeDownloading
         BookmarksHeight.Value = My.Settings.BookmarksHeight
+        SearchBarChk.Checked = My.Settings.SearchBarEnabled
+        SearchURLTxt.Text = My.Settings.SearchService
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
         Dim isElevated As Boolean = principal.IsInRole(WindowsBuiltInRole.Administrator)
@@ -126,5 +130,9 @@ Public Class Settings
 
     Private Sub Button12_Click(sender As Object, e As EventArgs) Handles JavaClearBtn.Click
         JavaTxt.Clear()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles SearchDefaultBtn.Click
+        SearchURLTxt.Text = "gopher://gopher.floodgap.com:70/7/v2/vs"
     End Sub
 End Class

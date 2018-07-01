@@ -58,6 +58,11 @@ Partial Class Settings
         Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.SearchBarChk = New System.Windows.Forms.CheckBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SearchURLTxt = New System.Windows.Forms.TextBox()
+        Me.SearchDefaultBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SSTabCtl.SuspendLayout()
@@ -70,6 +75,7 @@ Partial Class Settings
         Me.GroupBox5.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
+        Me.GroupBox7.SuspendLayout()
         CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -78,7 +84,7 @@ Partial Class Settings
         '
         Me.OkBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.OkBtn.DialogResult = System.Windows.Forms.DialogResult.OK
-        Me.OkBtn.Location = New System.Drawing.Point(582, 476)
+        Me.OkBtn.Location = New System.Drawing.Point(668, 476)
         Me.OkBtn.Name = "OkBtn"
         Me.OkBtn.Size = New System.Drawing.Size(81, 45)
         Me.OkBtn.TabIndex = 10
@@ -229,7 +235,7 @@ Partial Class Settings
         '
         Me.CancelBtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.CancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.CancelBtn.Location = New System.Drawing.Point(495, 476)
+        Me.CancelBtn.Location = New System.Drawing.Point(578, 476)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(81, 45)
         Me.CancelBtn.TabIndex = 9
@@ -330,7 +336,7 @@ Partial Class Settings
         Me.GroupBox5.Controls.Add(Me.TableLayoutPanel2)
         Me.GroupBox5.Location = New System.Drawing.Point(327, 312)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(168, 139)
+        Me.GroupBox5.Size = New System.Drawing.Size(168, 149)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Plain Text/Mapper"
@@ -350,7 +356,7 @@ Partial Class Settings
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(162, 114)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(162, 124)
         Me.TableLayoutPanel2.TabIndex = 13
         '
         'ForeBtn
@@ -358,9 +364,9 @@ Partial Class Settings
         Me.ForeBtn.BackColor = System.Drawing.Color.Black
         Me.ForeBtn.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ForeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ForeBtn.Location = New System.Drawing.Point(108, 60)
+        Me.ForeBtn.Location = New System.Drawing.Point(108, 65)
         Me.ForeBtn.Name = "ForeBtn"
-        Me.ForeBtn.Size = New System.Drawing.Size(42, 42)
+        Me.ForeBtn.Size = New System.Drawing.Size(42, 47)
         Me.ForeBtn.TabIndex = 1
         Me.ForeBtn.UseVisualStyleBackColor = False
         '
@@ -371,7 +377,7 @@ Partial Class Settings
         Me.BackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BackBtn.Location = New System.Drawing.Point(108, 12)
         Me.BackBtn.Name = "BackBtn"
-        Me.BackBtn.Size = New System.Drawing.Size(42, 42)
+        Me.BackBtn.Size = New System.Drawing.Size(42, 47)
         Me.BackBtn.TabIndex = 2
         Me.BackBtn.UseVisualStyleBackColor = False
         '
@@ -381,7 +387,7 @@ Partial Class Settings
         Me.FontBtn.Location = New System.Drawing.Point(12, 12)
         Me.FontBtn.Name = "FontBtn"
         Me.TableLayoutPanel2.SetRowSpan(Me.FontBtn, 2)
-        Me.FontBtn.Size = New System.Drawing.Size(90, 90)
+        Me.FontBtn.Size = New System.Drawing.Size(90, 100)
         Me.FontBtn.TabIndex = 0
         Me.FontBtn.Text = "Font"
         Me.FontBtn.UseVisualStyleBackColor = True
@@ -428,12 +434,17 @@ Partial Class Settings
         '
         'GroupBox7
         '
+        Me.GroupBox7.Controls.Add(Me.SearchDefaultBtn)
+        Me.GroupBox7.Controls.Add(Me.Label4)
+        Me.GroupBox7.Controls.Add(Me.SearchBarChk)
+        Me.GroupBox7.Controls.Add(Me.Label2)
+        Me.GroupBox7.Controls.Add(Me.SearchURLTxt)
         Me.GroupBox7.Location = New System.Drawing.Point(518, 174)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(141, 141)
+        Me.GroupBox7.Size = New System.Drawing.Size(231, 239)
         Me.GroupBox7.TabIndex = 13
         Me.GroupBox7.TabStop = False
-        Me.GroupBox7.Text = "Search"
+        Me.GroupBox7.Text = "Search Bar"
         '
         'BookmarksHeight
         '
@@ -464,10 +475,53 @@ Partial Class Settings
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bookmarks"
         '
+        'SearchBarChk
+        '
+        Me.SearchBarChk.AutoSize = True
+        Me.SearchBarChk.Location = New System.Drawing.Point(10, 28)
+        Me.SearchBarChk.Name = "SearchBarChk"
+        Me.SearchBarChk.Size = New System.Drawing.Size(85, 24)
+        Me.SearchBarChk.TabIndex = 3
+        Me.SearchBarChk.Text = "Enable"
+        Me.SearchBarChk.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(6, 118)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(219, 67)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "A ""?"" followed by the search query will be appended to the URL."
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 62)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 20)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Service URL:"
+        '
+        'SearchURLTxt
+        '
+        Me.SearchURLTxt.Location = New System.Drawing.Point(10, 85)
+        Me.SearchURLTxt.Name = "SearchURLTxt"
+        Me.SearchURLTxt.Size = New System.Drawing.Size(215, 26)
+        Me.SearchURLTxt.TabIndex = 4
+        '
+        'SearchDefaultBtn
+        '
+        Me.SearchDefaultBtn.Location = New System.Drawing.Point(56, 182)
+        Me.SearchDefaultBtn.Name = "SearchDefaultBtn"
+        Me.SearchDefaultBtn.Size = New System.Drawing.Size(109, 47)
+        Me.SearchDefaultBtn.TabIndex = 7
+        Me.SearchDefaultBtn.Text = "Veronica 2"
+        Me.SearchDefaultBtn.UseVisualStyleBackColor = True
+        '
         'Settings
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
-        Me.ClientSize = New System.Drawing.Size(675, 538)
+        Me.ClientSize = New System.Drawing.Size(761, 538)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)
         Me.Controls.Add(Me.ResetAllBtn)
@@ -480,7 +534,6 @@ Partial Class Settings
         Me.Controls.Add(Me.OkBtn)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(697, 594)
         Me.MinimizeBox = False
         Me.Name = "Settings"
         Me.ShowIcon = False
@@ -501,6 +554,8 @@ Partial Class Settings
         Me.GroupBox5.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox7.ResumeLayout(False)
+        Me.GroupBox7.PerformLayout()
         CType(Me.BookmarksHeight, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
@@ -544,4 +599,9 @@ Partial Class Settings
     Friend WithEvents BookmarksHeight As NumericUpDown
     Friend WithEvents Label1 As Label
     Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents SearchDefaultBtn As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents SearchBarChk As CheckBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents SearchURLTxt As TextBox
 End Class

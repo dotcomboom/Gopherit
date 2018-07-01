@@ -196,6 +196,30 @@ Namespace My
                 Me("BookmarksHeight") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("gopher://gopher.floodgap.com:70/7/v2/vs")>  _
+        Public Property SearchService() As String
+            Get
+                Return CType(Me("SearchService"),String)
+            End Get
+            Set
+                Me("SearchService") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property SearchBarEnabled() As Boolean
+            Get
+                Return CType(Me("SearchBarEnabled"),Boolean)
+            End Get
+            Set
+                Me("SearchBarEnabled") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

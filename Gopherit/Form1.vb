@@ -254,6 +254,18 @@ Public Class Form1
         TextBox2.ForeColor = My.Settings.PTForeColor
         BackColor = My.Settings.InterfaceBackColor
         CoreLayout.RowStyles.Item(CoreLayout.GetRow(BookmarksLsV) + 1).Height = My.Settings.BookmarksHeight
+        If My.Settings.BookmarksHeight = 0 Then
+            BookmarksLsV.Enabled = False
+        Else
+            BookmarksLsV.Enabled = True
+        End If
+        If My.Settings.SearchBarEnabled Then
+            TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 1).Width = 64
+            TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 2).Width = 150
+        Else
+            TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 1).Width = 0
+            TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 2).Width = 0
+        End If
 
         LoadBookmarks()
 
@@ -262,8 +274,8 @@ Public Class Form1
         Dim args = Environment.GetCommandLineArgs()
         If args.Count > 1 Then
             AddressCmb.Text = args(1)
-            Refresh()
             Go(sender, e)
+            Refresh()
         End If
     End Sub
 
@@ -316,6 +328,18 @@ Public Class Form1
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles SettingsStatusBtn.Click
         If Settings.ShowDialog() = DialogResult.OK Then
             CoreLayout.RowStyles.Item(CoreLayout.GetRow(BookmarksLsV) + 1).Height = My.Settings.BookmarksHeight
+            If My.Settings.BookmarksHeight = 0 Then
+                BookmarksLsV.Enabled = False
+            Else
+                BookmarksLsV.Enabled = True
+            End If
+            If My.Settings.SearchBarEnabled Then
+                TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 1).Width = 64
+                TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 2).Width = 150
+            Else
+                TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 1).Width = 0
+                TableLayoutPanel1.ColumnStyles.Item(TableLayoutPanel1.ColumnCount - 2).Width = 0
+            End If
             LoadBookmarks()
             TextBox2.Font = My.Settings.PTFont
             TextBox2.BackColor = My.Settings.PTBackColor
@@ -410,5 +434,17 @@ Public Class Form1
         End Try
         Save.content = TextBox2.Text
         Save.ShowDialog()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles SearchBtn.Click
+        AddressCmb.Text = My.Settings.SearchService & "?" & SearchTxt.Text.Replace(" ", "%20")
+        Go(sender, e)
+    End Sub
+
+    Private Sub SearchTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles SearchTxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            AddressCmb.Text = My.Settings.SearchService & "?" & SearchTxt.Text.Replace(" ", "%20")
+            Go(sender, e)
+        End If
     End Sub
 End Class

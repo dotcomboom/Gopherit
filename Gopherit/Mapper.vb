@@ -77,6 +77,7 @@
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles OpenBtn.Click
         Dim open As New OpenFileDialog
+        open.FileName = "gophermap"
         open.Title = "Open Gophermap"
         open.Filter = "Gophermap|gophermap|All files (*.*)|*.*"
         If open.ShowDialog = DialogResult.OK Then
@@ -86,6 +87,7 @@
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles SaveBtn.Click
         Dim save As New SaveFileDialog
+        save.FileName = "gophermap"
         save.Title = "Save Gophermap"
         save.Filter = "Gophermap|gophermap|All files (*.*)|*.*"
         If save.ShowDialog = DialogResult.OK Then

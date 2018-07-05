@@ -55,14 +55,14 @@ Partial Class Settings
         Me.iResetBtn = New System.Windows.Forms.Button()
         Me.iColorBtn = New System.Windows.Forms.Button()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.SearchDefaultBtn = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.SearchBarChk = New System.Windows.Forms.CheckBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SearchURLTxt = New System.Windows.Forms.TextBox()
         Me.BookmarksHeight = New System.Windows.Forms.NumericUpDown()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.SearchBarChk = New System.Windows.Forms.CheckBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.SearchURLTxt = New System.Windows.Forms.TextBox()
-        Me.SearchDefaultBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.SSTabCtl.SuspendLayout()
@@ -446,6 +446,49 @@ Partial Class Settings
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Search Bar"
         '
+        'SearchDefaultBtn
+        '
+        Me.SearchDefaultBtn.Location = New System.Drawing.Point(56, 182)
+        Me.SearchDefaultBtn.Name = "SearchDefaultBtn"
+        Me.SearchDefaultBtn.Size = New System.Drawing.Size(109, 47)
+        Me.SearchDefaultBtn.TabIndex = 7
+        Me.SearchDefaultBtn.Text = "Veronica 2"
+        Me.SearchDefaultBtn.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.Location = New System.Drawing.Point(6, 118)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(219, 67)
+        Me.Label4.TabIndex = 6
+        Me.Label4.Text = "A ""?"" followed by the search query will be appended to the URL."
+        '
+        'SearchBarChk
+        '
+        Me.SearchBarChk.AutoSize = True
+        Me.SearchBarChk.Location = New System.Drawing.Point(10, 28)
+        Me.SearchBarChk.Name = "SearchBarChk"
+        Me.SearchBarChk.Size = New System.Drawing.Size(85, 24)
+        Me.SearchBarChk.TabIndex = 3
+        Me.SearchBarChk.Text = "Enable"
+        Me.SearchBarChk.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 62)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 20)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Service URL:"
+        '
+        'SearchURLTxt
+        '
+        Me.SearchURLTxt.Location = New System.Drawing.Point(10, 85)
+        Me.SearchURLTxt.Name = "SearchURLTxt"
+        Me.SearchURLTxt.Size = New System.Drawing.Size(215, 26)
+        Me.SearchURLTxt.TabIndex = 4
+        '
         'BookmarksHeight
         '
         Me.BookmarksHeight.Location = New System.Drawing.Point(70, 60)
@@ -475,52 +518,10 @@ Partial Class Settings
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bookmarks"
         '
-        'SearchBarChk
-        '
-        Me.SearchBarChk.AutoSize = True
-        Me.SearchBarChk.Location = New System.Drawing.Point(10, 28)
-        Me.SearchBarChk.Name = "SearchBarChk"
-        Me.SearchBarChk.Size = New System.Drawing.Size(85, 24)
-        Me.SearchBarChk.TabIndex = 3
-        Me.SearchBarChk.Text = "Enable"
-        Me.SearchBarChk.UseVisualStyleBackColor = True
-        '
-        'Label4
-        '
-        Me.Label4.Location = New System.Drawing.Point(6, 118)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(219, 67)
-        Me.Label4.TabIndex = 6
-        Me.Label4.Text = "A ""?"" followed by the search query will be appended to the URL."
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 62)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 20)
-        Me.Label2.TabIndex = 5
-        Me.Label2.Text = "Service URL:"
-        '
-        'SearchURLTxt
-        '
-        Me.SearchURLTxt.Location = New System.Drawing.Point(10, 85)
-        Me.SearchURLTxt.Name = "SearchURLTxt"
-        Me.SearchURLTxt.Size = New System.Drawing.Size(215, 26)
-        Me.SearchURLTxt.TabIndex = 4
-        '
-        'SearchDefaultBtn
-        '
-        Me.SearchDefaultBtn.Location = New System.Drawing.Point(56, 182)
-        Me.SearchDefaultBtn.Name = "SearchDefaultBtn"
-        Me.SearchDefaultBtn.Size = New System.Drawing.Size(109, 47)
-        Me.SearchDefaultBtn.TabIndex = 7
-        Me.SearchDefaultBtn.Text = "Veronica 2"
-        Me.SearchDefaultBtn.UseVisualStyleBackColor = True
-        '
         'Settings
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(761, 538)
         Me.Controls.Add(Me.GroupBox7)
         Me.Controls.Add(Me.GroupBox6)

@@ -1,4 +1,5 @@
 # gopherit
+[![Build status](https://ci.appveyor.com/api/projects/status/djq2c7fmvjq30jcs?svg=true)](https://ci.appveyor.com/project/dotcomboom/gopherit)
 VB.NET Gopher browser using curl as a backend<br />
 <img src="gopherit.png" />
 ## Prerequisites

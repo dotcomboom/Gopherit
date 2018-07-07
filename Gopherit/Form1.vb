@@ -293,13 +293,13 @@ Public Class Form1
 
         If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").StartsWith("gopher://") Then
             If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&txt=yes") Then
-                AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&txt=yes", "")
+                AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&txt=yes", "").Replace(" ", "%20")
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&search=yes") Then
                 AddressCmb.Text = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&search=yes", "") & "?" & InputBox("Enter a query for the remote server to process.", "Query requested").Replace(" ", "%20")
                 Go(sender, e)
             ElseIf WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&dl=yes") Then
-                Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "")
+                Dim dlurl = WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Replace("&dl=yes", "").Replace(" ", "%20")
                 Dim dlurlsplit = dlurl.Split("/")
                 If My.Settings.AskBeforeDownloading Then
                     If MsgBox("Download file " & dlurlsplit.Last & " to " & My.Settings.DownloadDir & "\" & dlurlsplit.Last & "?", MsgBoxStyle.YesNo, "Download file") = MsgBoxResult.Yes Then

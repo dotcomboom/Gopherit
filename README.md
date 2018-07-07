@@ -1,4 +1,4 @@
-# gopherit
+# gopherit [![Build status](https://ci.appveyor.com/api/projects/status/djq2c7fmvjq30jcs?svg=true)](https://ci.appveyor.com/project/dotcomboom/gopherit)
 VB.NET Gopher browser using curl as a backend<br />
 <img src="gopherit.png" />
 ## Prerequisites
@@ -14,3 +14,5 @@ VB.NET Gopher browser using curl as a backend<br />
 - Edit the stylesheet used to display gopher menus as HTML
 - Set as URL handler (requires administrative privileges)
 - *Accelerated with Internet Explorer(tm) technology*
+## Canary builds
+Canary builds are done automatically with each commit. You can download Canary builds at the [AppVeyor artifacts page](https://ci.appveyor.com/project/dotcomboom/gopherit/build/artifacts). These are cutting-edge builds that have the latest features *and bugs too!* They aren't supported, and it's recommended to use the [stable releases](https://github.com/dotcomboom/gopherit/releases) for general usage.

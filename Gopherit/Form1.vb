@@ -422,9 +422,9 @@ Public Class Form1
     Private Sub SaveToFileToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveToFileToolStripMenuItem.Click
         Dim url = AddressCmb.Items.Item(AddressCmb.Items.Count - 1).replace("gopher://", "")
         Dim ss = url.split("/")
-        Save.TextBox1.Text = url.Replace("/", "-").replace(":", "_").replace("?", "!")
-        If Not Save.TextBox1.Text.Contains(".txt") Then
-            Save.TextBox1.AppendText(".txt")
+        Save.FilenameTxt.Text = url.Replace("/", "-").replace(":", "_").replace("?", "!")
+        If Not Save.FilenameTxt.Text.Contains(".txt") Then
+            Save.FilenameTxt.AppendText(".txt")
         End If
         Try
             If ss(1) = "0" Then

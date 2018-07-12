@@ -281,15 +281,6 @@ Public Class Form1
 
     Private Sub WebBrowser1_LocationChanged(sender As Object, e As EventArgs) Handles WebBrowser1.DocumentCompleted
         Console.WriteLine(WebBrowser1.Url.ToString)
-        Dim type = AddressCmb.Text.Replace("gopher://", "").Split("/")(1)
-        Try
-            If type = 0 Then
-                TabCtl.SelectTab(1)
-            Else
-                TabCtl.SelectTab(0)
-            End If
-        Catch ex As Exception
-        End Try
 
         If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").StartsWith("gopher://") Then
             If WebBrowser1.Url.ToString.Replace("about:blank?url=", "").Contains("&txt=yes") Then
@@ -315,6 +306,16 @@ Public Class Form1
                 Go(sender, e)
             End If
         End If
+
+        Try
+            Dim type = AddressCmb.Text.Replace("gopher://", "").Split("/")(1)
+            If type = 0 Then
+                TabCtl.SelectTab(1)
+            Else
+                TabCtl.SelectTab(0)
+            End If
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles BackToolStripMenuItem.Click, BackBtn.Click

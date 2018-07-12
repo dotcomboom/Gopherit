@@ -87,7 +87,7 @@ Partial Class Settings
         Me.OkBtn.Location = New System.Drawing.Point(668, 476)
         Me.OkBtn.Name = "OkBtn"
         Me.OkBtn.Size = New System.Drawing.Size(81, 45)
-        Me.OkBtn.TabIndex = 10
+        Me.OkBtn.TabIndex = 93
         Me.OkBtn.Text = "OK"
         Me.OkBtn.UseVisualStyleBackColor = True
         '
@@ -97,7 +97,7 @@ Partial Class Settings
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(309, 339)
-        Me.GroupBox1.TabIndex = 2
+        Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Styles and Scripts"
         '
@@ -238,7 +238,7 @@ Partial Class Settings
         Me.CancelBtn.Location = New System.Drawing.Point(578, 476)
         Me.CancelBtn.Name = "CancelBtn"
         Me.CancelBtn.Size = New System.Drawing.Size(81, 45)
-        Me.CancelBtn.TabIndex = 9
+        Me.CancelBtn.TabIndex = 92
         Me.CancelBtn.Text = "Cancel"
         Me.CancelBtn.UseVisualStyleBackColor = True
         '
@@ -289,7 +289,7 @@ Partial Class Settings
         Me.GroupBox4.Location = New System.Drawing.Point(12, 357)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(309, 104)
-        Me.GroupBox4.TabIndex = 11
+        Me.GroupBox4.TabIndex = 2
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Downloads"
         '
@@ -337,7 +337,7 @@ Partial Class Settings
         Me.GroupBox5.Location = New System.Drawing.Point(327, 312)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(168, 149)
-        Me.GroupBox5.TabIndex = 4
+        Me.GroupBox5.TabIndex = 5
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Plain Text/Mapper"
         '
@@ -398,7 +398,7 @@ Partial Class Settings
         Me.ResetAllBtn.Location = New System.Drawing.Point(12, 476)
         Me.ResetAllBtn.Name = "ResetAllBtn"
         Me.ResetAllBtn.Size = New System.Drawing.Size(164, 45)
-        Me.ResetAllBtn.TabIndex = 12
+        Me.ResetAllBtn.TabIndex = 91
         Me.ResetAllBtn.Text = "Reset All Settings"
         Me.ResetAllBtn.UseVisualStyleBackColor = True
         '
@@ -409,7 +409,7 @@ Partial Class Settings
         Me.GroupBox6.Location = New System.Drawing.Point(517, 12)
         Me.GroupBox6.Name = "GroupBox6"
         Me.GroupBox6.Size = New System.Drawing.Size(142, 155)
-        Me.GroupBox6.TabIndex = 3
+        Me.GroupBox6.TabIndex = 6
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Interface"
         '
@@ -442,7 +442,7 @@ Partial Class Settings
         Me.GroupBox7.Location = New System.Drawing.Point(518, 174)
         Me.GroupBox7.Name = "GroupBox7"
         Me.GroupBox7.Size = New System.Drawing.Size(231, 239)
-        Me.GroupBox7.TabIndex = 13
+        Me.GroupBox7.TabIndex = 7
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Search Bar"
         '

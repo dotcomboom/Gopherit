@@ -67,6 +67,8 @@ Public Class Form1
             AddressCmb.Text = "gopher://" & AddressCmb.Text.Replace("gopher://", "").Replace("//", "/")
         End If
 
+        AddressCmb.Text = AddressCmb.Text.Replace(" ", "%20")
+
         Dim url = AddressCmb.Text
 
         Dim slashsplit = url.Replace("gopher://", "").Split("/")
@@ -148,42 +150,54 @@ Public Class Form1
                         html = html & "<pre class='h' title='Off-gopher resource: " & surl & "'><a target='_blank' href='" & surl & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                     Else
                         Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                        surl = surl.Replace(" ", "%20")
                         html = html & "<pre class='h' title='HTML Document: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                     End If
                 ElseIf CLArray(0).StartsWith("0") Then
                     '0Caltrans California highway conditions	/calroads	gopher.floodgap.com	70
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='0' title='Text File: " & surl & "'><a href='about:blank?url=" & surl & "&txt=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("8") Then
                     '8Dura-Europe BBS	a	dura-bbs.net	6359
                     Dim surl = "telnet:" & CLArray(2) & ":" & CLArray(3)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='8' title='Telnet Session: " & surl & "'><a href='" & surl & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("1") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='1' title='Directory: " & surl & "'><a href='about:blank?url=" & surl & "'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("7") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='7' title='Search: " & surl & "'><a href='about:blank?url=" & surl & "&search=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("9") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='9' title='Binary File: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("5") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='5' title='PC binary: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("4") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='4' title='HQX filer: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("6") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='6' title='UNIX uuencoded file: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("g") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='I' title='GIF image: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("I") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='Im' title='Generic image: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 ElseIf CLArray(0).StartsWith("s") Then
                     Dim surl = "gopher://" & CLArray(2) & ":" & CLArray(3) & "/" & CLArray(0).Substring(0, 1) & CLArray(1)
+                    surl = surl.Replace(" ", "%20")
                     html = html & "<pre class='s' title='Sound: " & surl & "'><a href='about:blank?url=" & surl & "&dl=yes'>" & CLArray(0).Substring(1) & "</a></pre>"
                 Else
                     html = html & "<pre title='Unknown'>" & CurrentLine & "</pre>"

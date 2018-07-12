@@ -51,6 +51,7 @@ Public Class Settings
         BookmarksHeight.Value = My.Settings.BookmarksHeight
         SearchBarChk.Checked = My.Settings.SearchBarEnabled
         SearchURLTxt.Text = My.Settings.SearchService
+        iColorBtn.BackColor = My.Settings.InterfaceBackColor
         Dim identity = WindowsIdentity.GetCurrent()
         Dim principal = New WindowsPrincipal(identity)
         Dim isElevated As Boolean = principal.IsInRole(WindowsBuiltInRole.Administrator)

@@ -265,6 +265,7 @@ Partial Class Settings
         '
         'URLHandlerBtn
         '
+        Me.URLHandlerBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.URLHandlerBtn.Location = New System.Drawing.Point(6, 107)
         Me.URLHandlerBtn.Name = "URLHandlerBtn"
         Me.URLHandlerBtn.Size = New System.Drawing.Size(169, 66)

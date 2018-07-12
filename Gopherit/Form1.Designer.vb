@@ -210,6 +210,7 @@ Partial Class Form1
         '
         'StatusLbl
         '
+        Me.StatusLbl.BackColor = System.Drawing.Color.Transparent
         Me.StatusLbl.ForeColor = System.Drawing.Color.Green
         Me.StatusLbl.Name = "StatusLbl"
         Me.StatusLbl.Size = New System.Drawing.Size(60, 27)
@@ -218,6 +219,7 @@ Partial Class Form1
         '
         'UrlLbl
         '
+        Me.UrlLbl.BackColor = System.Drawing.Color.Transparent
         Me.UrlLbl.Margin = New System.Windows.Forms.Padding(0, 2, 0, 0)
         Me.UrlLbl.Name = "UrlLbl"
         Me.UrlLbl.Size = New System.Drawing.Size(533, 30)
@@ -226,6 +228,7 @@ Partial Class Form1
         '
         'MapperStatusBtn
         '
+        Me.MapperStatusBtn.BackColor = System.Drawing.Color.Transparent
         Me.MapperStatusBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.MapperStatusBtn.DropDownButtonWidth = 0
         Me.MapperStatusBtn.ForeColor = System.Drawing.SystemColors.Highlight
@@ -237,6 +240,7 @@ Partial Class Form1
         '
         'SettingsStatusBtn
         '
+        Me.SettingsStatusBtn.BackColor = System.Drawing.Color.Transparent
         Me.SettingsStatusBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
         Me.SettingsStatusBtn.DropDownButtonWidth = 0
         Me.SettingsStatusBtn.ForeColor = System.Drawing.SystemColors.Highlight
